@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/authentication.css' %}" />
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/placeholder_hack.js' %}"></script>
+{% endblock %}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block sublinks %}
+{% endblock %}
+
+{% block content %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+<form id="signup_form" method="post">
+	{% csrf_token %}
+	<div class="signupGrid">
+		{{form.username.label_tag}}
+		{{form.username}}
+		{{form.first_name.label_tag}}
+		{{form.first_name}}
+		{{form.last_name.label_tag}}
+		{{form.last_name}}
+		{{form.password1.label_tag}}
+		{{form.password1}}
+		{{form.password2.label_tag}}
+		{{form.password2}}
+		<div class="help_text">
+			<p>Username can only contain letters, digits, and @/./+/-/_.</p>
+			<p>Password must be at least 8 characters, and can't all be numbers or too similar to your username.</p>
+			{% if form.errors%}
+			{% for field in form %}
+			{% for error in field.errors%}
+			<p class="error">{{error|escape}}</p>
+			{% endfor %}
+			{% endfor %}
+			{% endif %}
+		</div>
+		<button type="submit">Sign up</button>
+	</div>
+</form>
+
+{% endblock %}

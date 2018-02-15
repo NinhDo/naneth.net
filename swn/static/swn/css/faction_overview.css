@@ -1,0 +1,110 @@
+.factionWrapper {
+	display: grid;
+	grid-template-columns: auto 1px 1fr;
+	grid-template-areas:
+		"info bar notes";
+	grid-gap: 1rem;
+	margin-top: 3rem;
+}
+
+.factionInfo {
+	grid-area: info;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(6rem, auto));
+	grid-template-rows: repeat(4, 3rem) auto;
+	grid-template-areas:
+		"pcReputation health"
+		"force exp"
+		"cunning income"
+		"wealth faccreds"
+		"tags goal";
+	grid-gap: 1rem;
+	justify-items: start;
+}
+
+.bar {
+	grid-area: bar;
+	background-color: black;
+}
+
+.type {
+	grid-area: type;
+}
+
+.homeworld {
+	grid-area: homeworld;
+}
+
+.pcReputation {
+	grid-area: pcReputation;
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+	grid-gap: 1rem;
+}
+
+.force, .cunning, .wealth {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+	align-items: center;
+	justify-self: stretch;
+}
+
+.force span, .cunning span, .wealth span {
+	justify-self: end;
+}
+
+.health {
+	grid-area: health;
+}
+
+.income {
+	grid-area: income;
+}
+
+.faccreds {
+	grid-area: faccreds;
+}
+
+.exp {
+	grid-area: exp;
+}
+
+.tags {
+	grid-area: tags;
+}
+
+.goal {
+	grid-area: goal;
+	text-align: right;
+}
+
+.health, .exp, .income, .faccreds, .goal {
+	justify-self: end;
+}
+
+.health, .exp, .income, .faccreds {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+	grid-gap: 1rem;
+}
+
+.notes {
+	grid-area: notes;
+	display: grid;
+	grid-template-rows: 3rem auto;
+}
+
+.notes h3{
+	margin: 0;
+	align-self: center;
+}
+
+.notes textarea {
+	min-width: 10rem;
+	max-width: 40rem;
+	min-height: 10rem;
+	max-height: 40rem;
+}

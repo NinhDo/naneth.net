@@ -1,0 +1,12 @@
+INSERT INTO "swn_quickheresyheresy" VALUES (1, 'Manichaeanism: the sect believes in harsh austerities and rejection of matter as something profane and evil.', 'Manichaeanists');
+INSERT INTO "swn_quickheresyheresy" VALUES (2, 'Donatism: the sect believes that clergy must be personally pure and holy in order to be legitimate.', 'Donatists');
+INSERT INTO "swn_quickheresyheresy" VALUES (3, 'Supercessionism: the sect believes the founder or some other source supercedes former scripture or tradition.', 'Supercessionists');
+INSERT INTO "swn_quickheresyheresy" VALUES (4, 'Antinomianism: the sect believes that their holy persons are above any earthly law and may do as they will.', 'Antinomianists');
+INSERT INTO "swn_quickheresyheresy" VALUES (5, 'Universal priesthood: the sect believes that there is no distinction between clergy and layman and that all functions of the faith may be performed by all members.', 'Universalists');
+INSERT INTO "swn_quickheresyheresy" VALUES (6, 'Conciliarism: the sect believes that the consensus of believers may correct or command even the clerical leadership of the faith.', 'Conciliarists');
+INSERT INTO "swn_quickheresyheresy" VALUES (7, 'Ethnocentrism: the sect believes that only a particular ethnicity or nationality can truly belong to the faith.', 'Ethnocentrists');
+INSERT INTO "swn_quickheresyheresy" VALUES (8, 'Separatism: the sect believes members should shun involvement with the secular world.', 'Separatists');
+INSERT INTO "swn_quickheresyheresy" VALUES (9, 'Stringency: the sect believes that even minor sins should be punished, and major sins should be capital crimes.', 'Stringentists');
+INSERT INTO "swn_quickheresyheresy" VALUES (10, 'Syncretism: the sect has added elements of $$RELIGION to their beliefs.', 'Syncretists');
+INSERT INTO "swn_quickheresyheresy" VALUES (11, 'Primitivism: the sect tries to recreate what they imagine was the original community of faith.', 'Primitivists');
+INSERT INTO "swn_quickheresyheresy" VALUES (12, 'Conversion by the sword: unbelievers must be brought to obedience to the sect or be granted death.', 'Crusaders');

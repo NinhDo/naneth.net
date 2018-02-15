@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load template_tags %}
+
+{% block title %}System: {{system.name}}{% endblock %}
+
+{% block content %}
+<h1>System: {{system.name}}</h1>
+<table class="system_table">
+	<thead>
+		<tr>
+			<th>Hex</th>
+			<th>World or Station</th>
+			<th>Atmosphere</th>
+			<th>Temperature</th>
+			<th>Biosphere</th>
+			<th>Population</th>
+			<th>TL</th>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<th class="gmonly">Tags</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for planet in planet_list %}
+		<tr>
+			<td><a href="{% url 'swn:system' system.alias %}">{{system.nav_designation}}</a></td>
+			<td><a href="{% url 'swn:planet' system.alias planet.alias%}">{{planet.name}}</a></td>
+			<td>{{planet.atmosphere}}</td>
+			<td>{{planet.temperature}}</td>
+			<td>{{planet.biosphere}}</td>
+			<td>{{planet.population.short}}</td>
+			<td>{{planet.tech_level.short}}</td>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<td class="gmonly">{{planet.tag1}}, {{planet.tag2}}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

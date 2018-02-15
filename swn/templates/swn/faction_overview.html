@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load template_tags %}
+
+{% block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/faction_overview.css' %}" />
+{% endblock %}
+
+{% block  js %}
+<script src="{% static 'swn/js/reputation.js' %}"></script>
+{% if user.is_authenticated %}
+<script src="{% static 'swn/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'swn/js/jquery.are-you-sure.js' %}"></script>
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="{% static 'swn/js/markdown.js' %}"></script>
+{% endif %}
+{% endblock%}
+
+{% block title%}{{faction.name}}{% endblock %}
+
+{% block content %}
+<h1>{{faction.name}}</h1>
+<div class="subtitle">
+	<span class="type">{{faction.faction_type}}</span>
+	<span class="homeworld"><a href="{% url 'swn:planet' faction.homeworld.system.alias faction.homeworld.alias %}">{{faction.homeworld}}</a> - <a  href="{% url 'swn:system' faction.homeworld.system.alias %}">{{faction.homeworld.system}} [{{faction.homeworld.system.nav_designation}}]</a></span>
+</div>
+{% if user.is_authenticated %}
+{% if user|has_group:"GM" %}
+<div class="factionWrapper">
+	<div class=factionInfo>
+		<div class="pcReputation">
+			<h3>PC Reputation</h3>
+			<span>{{faction.pc_reputation}}</span>
+		</div>
+		<div class="force">
+			<h3>Force</h3>
+			<span>{{faction.force}}</span>
+		</div>
+		<div class="cunning">
+			<h3>Cunning</h3>
+			<span>{{faction.cunning}}</span>
+		</div>
+		<div class="wealth">
+			<h3>Wealth</h3>
+			<span>{{faction.wealth}}</span>
+		</div>
+		<div class="health">
+			<h3>HP</h3>
+			<span>{{faction.current_hp}}/{{faction.max_hp}}</span>
+		</div>
+		<div class="income">
+			<h3>Income</h3>
+			<span>{{faction.income}}</span>
+		</div>
+		<div class="faccreds">
+			<h3>FacCreds</h3>
+			<span>{{faction.faccreds}}</span>
+		</div>
+		<div class="exp">
+			<h3>Experience</h3>
+			<span>{{faction.exp}}</span>
+		</div>
+		<div class="tags">
+			<h3>Tags</h3>
+			{% for tag in faction.tags.all%}
+			<span class="tooltip">{{tag}}<span class="tooltiptext">{{tag.description}}</span></span>
+			{% if not forloop.last %}<br/>{% endif %}
+			{% empty %}
+			No tags
+			{% endfor %}
+		</div>
+		<div class="goal">
+			<h3>Goal</h3>
+			<span class="tooltip">{{faction.goal}}<span class="tooltiptext">{{faction.goal.description}}</span></span>
+		</div>
+	</div>
+	<div class="bar"></div>
+	<form id="notes_form" name="notes_form" method="post" data-save-url="{% url 'swn:save_notes' %}?id={{faction.notes.id}}">
+		{% csrf_token %}
+		<div class="notes">
+			<h3>GM Notes <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h3>
+			<textarea class="hidden" name="gm_notes" form="notes_form" id="notes" rows="10", cols="50">{{faction.notes.gm_notes}}</textarea>
+			<div id="markdown"></div>
+		</div>
+	</form>
+	{% elif user|has_group:"Player" %}
+	<div class="bar"></div>
+	<form id="notes_form" name="notes_form" method="post" data-save-url="{% url 'swn:save_notes' %}?id={{faction.notes.id}}">
+		{% csrf_token %}
+		<div class="notes">
+			<h3>Notes <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h3>
+			<textarea class="hidden" name="player_notes" form="notes_form" id="notes" rows="10", cols="50">{{faction.notes.player_notes}}</textarea>
+			<div id="markdown"></div>
+		</div>
+	<form>
+	{% endif %}
+</div>
+{% endif %}
+{% endblock %}

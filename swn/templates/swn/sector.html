@@ -1,0 +1,616 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/sector.css' %}" />
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/sorttable.js' %}"></script>
+<script src="{% static 'swn/target.js' %}"></script>
+{% endblock %}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block content%}
+<div class="sectorwrapper">
+	<h1>Sector Asgard Sigma</h1>
+
+
+
+
+
+	<svg class="sectorMap" mlns="http://www.w3.org/2000/svg" version="1.1" width="{{w}}" height="{{h}}" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<g class="hex 0000 " onclick="filter('0000')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,80.00000 60.00000,114.64102 20.00000,114.64102 0.00000,80.00000 20.00000,45.35898 60.00000,45.35898 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="80">0000</text>
+
+		</g>
+
+		<g class="hex 0001 " onclick="filter('0001')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,149.28203 60.00000,183.92305 20.00000,183.92305 0.00000,149.28203 20.00000,114.64102 60.00000,114.64102 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="149.28203230275508">0001</text>
+
+		</g>
+
+		<g class="hex 0002 populated" onclick="filter('0002')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,218.56406 60.00000,253.20508 20.00000,253.20508 0.00000,218.56406 20.00000,183.92305 60.00000,183.92305 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="218.56406460551017">0002</text>
+
+				<circle r="5" cx="40" cy="218.56406460551017" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="218.56406460551017">Pavi</text>
+
+		</g>
+
+		<g class="hex 0003 " onclick="filter('0003')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,287.84610 60.00000,322.48711 20.00000,322.48711 0.00000,287.84610 20.00000,253.20508 60.00000,253.20508 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="287.8460969082653">0003</text>
+
+		</g>
+
+		<g class="hex 0004 populated" onclick="filter('0004')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,357.12813 60.00000,391.76915 20.00000,391.76915 0.00000,357.12813 20.00000,322.48711 60.00000,322.48711 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="357.12812921102034">0004</text>
+
+				<circle r="5" cx="40" cy="357.12812921102034" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="357.12812921102034">Eneka</text>
+
+		</g>
+
+		<g class="hex 0005 " onclick="filter('0005')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,426.41016 60.00000,461.05118 20.00000,461.05118 0.00000,426.41016 20.00000,391.76915 60.00000,391.76915 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="426.4101615137754">0005</text>
+
+		</g>
+
+		<g class="hex 0006 " onclick="filter('0006')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,495.69219 60.00000,530.33321 20.00000,530.33321 0.00000,495.69219 20.00000,461.05118 60.00000,461.05118 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="495.69219381653045">0006</text>
+
+		</g>
+
+		<g class="hex 0007 " onclick="filter('0007')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,564.97423 60.00000,599.61524 20.00000,599.61524 0.00000,564.97423 20.00000,530.33321 60.00000,530.33321 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="564.9742261192855">0007</text>
+
+		</g>
+
+		<g class="hex 0008 " onclick="filter('0008')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,634.25626 60.00000,668.89727 20.00000,668.89727 0.00000,634.25626 20.00000,599.61524 60.00000,599.61524 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="634.2562584220406">0008</text>
+
+		</g>
+
+		<g class="hex 0009 " onclick="filter('0009')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="80.00000,703.53829 60.00000,738.17931 20.00000,738.17931 0.00000,703.53829 20.00000,668.89727 60.00000,668.89727 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="40" y="703.5382907247956">0009</text>
+
+		</g>
+
+		<g class="hex 0100 " onclick="filter('0100')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,114.64102 120.00000,149.28203 80.00000,149.28203 60.00000,114.64102 80.00000,80.00000 120.00000,80.00000 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="114.64101615137754">0100</text>
+
+		</g>
+
+		<g class="hex 0101 " onclick="filter('0101')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,183.92305 120.00000,218.56406 80.00000,218.56406 60.00000,183.92305 80.00000,149.28203 120.00000,149.28203 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="183.92304845413264">0101</text>
+
+		</g>
+
+		<g class="hex 0102 " onclick="filter('0102')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,253.20508 120.00000,287.84610 80.00000,287.84610 60.00000,253.20508 80.00000,218.56406 120.00000,218.56406 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="253.20508075688772">0102</text>
+
+		</g>
+
+		<g class="hex 0103 populated" onclick="filter('0103')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,322.48711 120.00000,357.12813 80.00000,357.12813 60.00000,322.48711 80.00000,287.84610 120.00000,287.84610 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="322.4871130596428">0103</text>
+
+				<circle r="5" cx="100.0" cy="322.4871130596428" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="322.4871130596428">Laodice</text>
+
+		</g>
+
+		<g class="hex 0104 " onclick="filter('0104')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,391.76915 120.00000,426.41016 80.00000,426.41016 60.00000,391.76915 80.00000,357.12813 120.00000,357.12813 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="391.7691453623979">0104</text>
+
+		</g>
+
+		<g class="hex 0105 " onclick="filter('0105')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,461.05118 120.00000,495.69219 80.00000,495.69219 60.00000,461.05118 80.00000,426.41016 120.00000,426.41016 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="461.051177665153">0105</text>
+
+		</g>
+
+		<g class="hex 0106 " onclick="filter('0106')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,530.33321 120.00000,564.97423 80.00000,564.97423 60.00000,530.33321 80.00000,495.69219 120.00000,495.69219 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="530.333209967908">0106</text>
+
+		</g>
+
+		<g class="hex 0107 populated" onclick="filter('0107')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,599.61524 120.00000,634.25626 80.00000,634.25626 60.00000,599.61524 80.00000,564.97423 120.00000,564.97423 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="599.6152422706631">0107</text>
+
+				<circle r="5" cx="100.0" cy="599.6152422706631" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="599.6152422706631">Mualmi</text>
+
+		</g>
+
+		<g class="hex 0108 populated" onclick="filter('0108')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,668.89727 120.00000,703.53829 80.00000,703.53829 60.00000,668.89727 80.00000,634.25626 120.00000,634.25626 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="668.8972745734181">0108</text>
+
+				<circle r="5" cx="100.0" cy="668.8972745734181" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="668.8972745734181">Franco</text>
+
+		</g>
+
+		<g class="hex 0109 populated" onclick="filter('0109')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="140.00000,738.17931 120.00000,772.82032 80.00000,772.82032 60.00000,738.17931 80.00000,703.53829 120.00000,703.53829 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="738.1793068761732">0109</text>
+
+				<circle r="5" cx="100.0" cy="738.1793068761732" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="100.0" y="738.1793068761732">Dávila</text>
+
+		</g>
+
+		<g class="hex 0200 populated" onclick="filter('0200')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,80.00000 180.00000,114.64102 140.00000,114.64102 120.00000,80.00000 140.00000,45.35898 180.00000,45.35898 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="80">0200</text>
+
+				<circle r="5" cx="160.0" cy="80" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="80">Pierides</text>
+
+		</g>
+
+		<g class="hex 0201 " onclick="filter('0201')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,149.28203 180.00000,183.92305 140.00000,183.92305 120.00000,149.28203 140.00000,114.64102 180.00000,114.64102 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="149.28203230275508">0201</text>
+
+		</g>
+
+		<g class="hex 0202 populated" onclick="filter('0202')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,218.56406 180.00000,253.20508 140.00000,253.20508 120.00000,218.56406 140.00000,183.92305 180.00000,183.92305 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="218.56406460551017">0202</text>
+
+				<circle r="5" cx="160.0" cy="218.56406460551017" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="218.56406460551017">Pilare</text>
+
+		</g>
+
+		<g class="hex 0203 populated" onclick="filter('0203')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,287.84610 180.00000,322.48711 140.00000,322.48711 120.00000,287.84610 140.00000,253.20508 180.00000,253.20508 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="287.8460969082653">0203</text>
+
+				<circle r="5" cx="160.0" cy="287.8460969082653" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="287.8460969082653">Hlif</text>
+
+		</g>
+
+		<g class="hex 0204 " onclick="filter('0204')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,357.12813 180.00000,391.76915 140.00000,391.76915 120.00000,357.12813 140.00000,322.48711 180.00000,322.48711 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="357.12812921102034">0204</text>
+
+		</g>
+
+		<g class="hex 0205 " onclick="filter('0205')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,426.41016 180.00000,461.05118 140.00000,461.05118 120.00000,426.41016 140.00000,391.76915 180.00000,391.76915 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="426.4101615137754">0205</text>
+
+		</g>
+
+		<g class="hex 0206 " onclick="filter('0206')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,495.69219 180.00000,530.33321 140.00000,530.33321 120.00000,495.69219 140.00000,461.05118 180.00000,461.05118 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="495.69219381653045">0206</text>
+
+		</g>
+
+		<g class="hex 0207 " onclick="filter('0207')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,564.97423 180.00000,599.61524 140.00000,599.61524 120.00000,564.97423 140.00000,530.33321 180.00000,530.33321 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="564.9742261192855">0207</text>
+
+		</g>
+
+		<g class="hex 0208 " onclick="filter('0208')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,634.25626 180.00000,668.89727 140.00000,668.89727 120.00000,634.25626 140.00000,599.61524 180.00000,599.61524 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="634.2562584220406">0208</text>
+
+		</g>
+
+		<g class="hex 0209 " onclick="filter('0209')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="200.00000,703.53829 180.00000,738.17931 140.00000,738.17931 120.00000,703.53829 140.00000,668.89727 180.00000,668.89727 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="160.0" y="703.5382907247956">0209</text>
+
+		</g>
+
+		<g class="hex 0300 populated" onclick="filter('0300')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,114.64102 240.00000,149.28203 200.00000,149.28203 180.00000,114.64102 200.00000,80.00000 240.00000,80.00000 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="114.64101615137754">0300</text>
+
+				<circle r="5" cx="220.0" cy="114.64101615137754" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="114.64101615137754">Thordis</text>
+
+		</g>
+
+		<g class="hex 0301 populated" onclick="filter('0301')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,183.92305 240.00000,218.56406 200.00000,218.56406 180.00000,183.92305 200.00000,149.28203 240.00000,149.28203 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="183.92304845413264">0301</text>
+
+				<circle r="5" cx="220.0" cy="183.92304845413264" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="183.92304845413264">Na'imi</text>
+
+		</g>
+
+		<g class="hex 0302 " onclick="filter('0302')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,253.20508 240.00000,287.84610 200.00000,287.84610 180.00000,253.20508 200.00000,218.56406 240.00000,218.56406 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="253.20508075688772">0302</text>
+
+		</g>
+
+		<g class="hex 0303 " onclick="filter('0303')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,322.48711 240.00000,357.12813 200.00000,357.12813 180.00000,322.48711 200.00000,287.84610 240.00000,287.84610 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="322.4871130596428">0303</text>
+
+		</g>
+
+		<g class="hex 0304 populated" onclick="filter('0304')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,391.76915 240.00000,426.41016 200.00000,426.41016 180.00000,391.76915 200.00000,357.12813 240.00000,357.12813 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="391.7691453623979">0304</text>
+
+				<circle r="5" cx="220.0" cy="391.7691453623979" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="391.7691453623979">Vafa'i</text>
+
+		</g>
+
+		<g class="hex 0305 " onclick="filter('0305')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,461.05118 240.00000,495.69219 200.00000,495.69219 180.00000,461.05118 200.00000,426.41016 240.00000,426.41016 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="461.051177665153">0305</text>
+
+		</g>
+
+		<g class="hex 0306 populated" onclick="filter('0306')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,530.33321 240.00000,564.97423 200.00000,564.97423 180.00000,530.33321 200.00000,495.69219 240.00000,495.69219 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="530.333209967908">0306</text>
+
+				<circle r="5" cx="220.0" cy="530.333209967908" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="530.333209967908">Varvaressos</text>
+
+		</g>
+
+		<g class="hex 0307 " onclick="filter('0307')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,599.61524 240.00000,634.25626 200.00000,634.25626 180.00000,599.61524 200.00000,564.97423 240.00000,564.97423 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="599.6152422706631">0307</text>
+
+		</g>
+
+		<g class="hex 0308 " onclick="filter('0308')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,668.89727 240.00000,703.53829 200.00000,703.53829 180.00000,668.89727 200.00000,634.25626 240.00000,634.25626 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="668.8972745734181">0308</text>
+
+		</g>
+
+		<g class="hex 0309 " onclick="filter('0309')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="260.00000,738.17931 240.00000,772.82032 200.00000,772.82032 180.00000,738.17931 200.00000,703.53829 240.00000,703.53829 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="220.0" y="738.1793068761732">0309</text>
+
+		</g>
+
+		<g class="hex 0400 populated" onclick="filter('0400')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,80.00000 300.00000,114.64102 260.00000,114.64102 240.00000,80.00000 260.00000,45.35898 300.00000,45.35898 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="80">0400</text>
+
+				<circle r="5" cx="280.0" cy="80" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="80">Vahdat</text>
+
+		</g>
+
+		<g class="hex 0401 " onclick="filter('0401')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,149.28203 300.00000,183.92305 260.00000,183.92305 240.00000,149.28203 260.00000,114.64102 300.00000,114.64102 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="149.28203230275508">0401</text>
+
+		</g>
+
+		<g class="hex 0402 " onclick="filter('0402')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,218.56406 300.00000,253.20508 260.00000,253.20508 240.00000,218.56406 260.00000,183.92305 300.00000,183.92305 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="218.56406460551017">0402</text>
+
+		</g>
+
+		<g class="hex 0403 populated" onclick="filter('0403')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,287.84610 300.00000,322.48711 260.00000,322.48711 240.00000,287.84610 260.00000,253.20508 300.00000,253.20508 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="287.8460969082653">0403</text>
+
+				<circle r="5" cx="280.0" cy="287.8460969082653" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="287.8460969082653">Protagoras</text>
+
+		</g>
+
+		<g class="hex 0404 populated" onclick="filter('0404')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,357.12813 300.00000,391.76915 260.00000,391.76915 240.00000,357.12813 260.00000,322.48711 300.00000,322.48711 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="357.12812921102034">0404</text>
+
+				<circle r="5" cx="280.0" cy="357.12812921102034" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="357.12812921102034">Anaiansi</text>
+
+		</g>
+
+		<g class="hex 0405 " onclick="filter('0405')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,426.41016 300.00000,461.05118 260.00000,461.05118 240.00000,426.41016 260.00000,391.76915 300.00000,391.76915 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="426.4101615137754">0405</text>
+
+		</g>
+
+		<g class="hex 0406 " onclick="filter('0406')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,495.69219 300.00000,530.33321 260.00000,530.33321 240.00000,495.69219 260.00000,461.05118 300.00000,461.05118 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="495.69219381653045">0406</text>
+
+		</g>
+
+		<g class="hex 0407 populated" onclick="filter('0407')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,564.97423 300.00000,599.61524 260.00000,599.61524 240.00000,564.97423 260.00000,530.33321 300.00000,530.33321 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="564.9742261192855">0407</text>
+
+				<circle r="5" cx="280.0" cy="564.9742261192855" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="564.9742261192855">Gunnhild</text>
+
+		</g>
+
+		<g class="hex 0408 " onclick="filter('0408')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,634.25626 300.00000,668.89727 260.00000,668.89727 240.00000,634.25626 260.00000,599.61524 300.00000,599.61524 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="634.2562584220406">0408</text>
+
+		</g>
+
+		<g class="hex 0409 " onclick="filter('0409')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="320.00000,703.53829 300.00000,738.17931 260.00000,738.17931 240.00000,703.53829 260.00000,668.89727 300.00000,668.89727 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="280.0" y="703.5382907247956">0409</text>
+
+		</g>
+
+		<g class="hex 0500 " onclick="filter('0500')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,114.64102 360.00000,149.28203 320.00000,149.28203 300.00000,114.64102 320.00000,80.00000 360.00000,80.00000 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="114.64101615137754">0500</text>
+
+		</g>
+
+		<g class="hex 0501 " onclick="filter('0501')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,183.92305 360.00000,218.56406 320.00000,218.56406 300.00000,183.92305 320.00000,149.28203 360.00000,149.28203 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="183.92304845413264">0501</text>
+
+		</g>
+
+		<g class="hex 0502 " onclick="filter('0502')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,253.20508 360.00000,287.84610 320.00000,287.84610 300.00000,253.20508 320.00000,218.56406 360.00000,218.56406 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="253.20508075688772">0502</text>
+
+		</g>
+
+		<g class="hex 0503 " onclick="filter('0503')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,322.48711 360.00000,357.12813 320.00000,357.12813 300.00000,322.48711 320.00000,287.84610 360.00000,287.84610 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="322.4871130596428">0503</text>
+
+		</g>
+
+		<g class="hex 0504 " onclick="filter('0504')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,391.76915 360.00000,426.41016 320.00000,426.41016 300.00000,391.76915 320.00000,357.12813 360.00000,357.12813 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="391.7691453623979">0504</text>
+
+		</g>
+
+		<g class="hex 0505 " onclick="filter('0505')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,461.05118 360.00000,495.69219 320.00000,495.69219 300.00000,461.05118 320.00000,426.41016 360.00000,426.41016 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="461.051177665153">0505</text>
+
+		</g>
+
+		<g class="hex 0506 " onclick="filter('0506')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,530.33321 360.00000,564.97423 320.00000,564.97423 300.00000,530.33321 320.00000,495.69219 360.00000,495.69219 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="530.333209967908">0506</text>
+
+		</g>
+
+		<g class="hex 0507 " onclick="filter('0507')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,599.61524 360.00000,634.25626 320.00000,634.25626 300.00000,599.61524 320.00000,564.97423 360.00000,564.97423 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="599.6152422706631">0507</text>
+
+		</g>
+
+		<g class="hex 0508 " onclick="filter('0508')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,668.89727 360.00000,703.53829 320.00000,703.53829 300.00000,668.89727 320.00000,634.25626 360.00000,634.25626 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="668.8972745734181">0508</text>
+
+		</g>
+
+		<g class="hex 0509 " onclick="filter('0509')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="380.00000,738.17931 360.00000,772.82032 320.00000,772.82032 300.00000,738.17931 320.00000,703.53829 360.00000,703.53829 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="340.0" y="738.1793068761732">0509</text>
+
+		</g>
+
+		<g class="hex 0600 " onclick="filter('0600')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,80.00000 420.00000,114.64102 380.00000,114.64102 360.00000,80.00000 380.00000,45.35898 420.00000,45.35898 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="80">0600</text>
+
+		</g>
+
+		<g class="hex 0601 " onclick="filter('0601')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,149.28203 420.00000,183.92305 380.00000,183.92305 360.00000,149.28203 380.00000,114.64102 420.00000,114.64102 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="149.28203230275508">0601</text>
+
+		</g>
+
+		<g class="hex 0602 populated" onclick="filter('0602')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,218.56406 420.00000,253.20508 380.00000,253.20508 360.00000,218.56406 380.00000,183.92305 420.00000,183.92305 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="218.56406460551017">0602</text>
+
+				<circle r="5" cx="400.0" cy="218.56406460551017" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="218.56406460551017">Forrughi</text>
+
+		</g>
+
+		<g class="hex 0603 " onclick="filter('0603')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,287.84610 420.00000,322.48711 380.00000,322.48711 360.00000,287.84610 380.00000,253.20508 420.00000,253.20508 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="287.8460969082653">0603</text>
+
+		</g>
+
+		<g class="hex 0604 " onclick="filter('0604')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,357.12813 420.00000,391.76915 380.00000,391.76915 360.00000,357.12813 380.00000,322.48711 420.00000,322.48711 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="357.12812921102034">0604</text>
+
+		</g>
+
+		<g class="hex 0605 " onclick="filter('0605')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,426.41016 420.00000,461.05118 380.00000,461.05118 360.00000,426.41016 380.00000,391.76915 420.00000,391.76915 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="426.4101615137754">0605</text>
+
+		</g>
+
+		<g class="hex 0606 populated" onclick="filter('0606')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,495.69219 420.00000,530.33321 380.00000,530.33321 360.00000,495.69219 380.00000,461.05118 420.00000,461.05118 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="495.69219381653045">0606</text>
+
+				<circle r="5" cx="400.0" cy="495.69219381653045" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="495.69219381653045">Stasi</text>
+
+		</g>
+
+		<g class="hex 0607 " onclick="filter('0607')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,564.97423 420.00000,599.61524 380.00000,599.61524 360.00000,564.97423 380.00000,530.33321 420.00000,530.33321 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="564.9742261192855">0607</text>
+
+		</g>
+
+		<g class="hex 0608 populated" onclick="filter('0608')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,634.25626 420.00000,668.89727 380.00000,668.89727 360.00000,634.25626 380.00000,599.61524 420.00000,599.61524 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="634.2562584220406">0608</text>
+
+				<circle r="5" cx="400.0" cy="634.2562584220406" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="634.2562584220406">Torrillas</text>
+
+		</g>
+
+		<g class="hex 0609 " onclick="filter('0609')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="440.00000,703.53829 420.00000,738.17931 380.00000,738.17931 360.00000,703.53829 380.00000,668.89727 420.00000,668.89727 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="400.0" y="703.5382907247956">0609</text>
+
+		</g>
+
+		<g class="hex 0700 " onclick="filter('0700')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,114.64102 480.00000,149.28203 440.00000,149.28203 420.00000,114.64102 440.00000,80.00000 480.00000,80.00000 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="114.64101615137754">0700</text>
+
+		</g>
+
+		<g class="hex 0701 " onclick="filter('0701')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,183.92305 480.00000,218.56406 440.00000,218.56406 420.00000,183.92305 440.00000,149.28203 480.00000,149.28203 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="183.92304845413264">0701</text>
+
+		</g>
+
+		<g class="hex 0702 " onclick="filter('0702')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,253.20508 480.00000,287.84610 440.00000,287.84610 420.00000,253.20508 440.00000,218.56406 480.00000,218.56406 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="253.20508075688772">0702</text>
+
+		</g>
+
+		<g class="hex 0703 " onclick="filter('0703')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,322.48711 480.00000,357.12813 440.00000,357.12813 420.00000,322.48711 440.00000,287.84610 480.00000,287.84610 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="322.4871130596428">0703</text>
+
+		</g>
+
+		<g class="hex 0704 populated" onclick="filter('0704')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,391.76915 480.00000,426.41016 440.00000,426.41016 420.00000,391.76915 440.00000,357.12813 480.00000,357.12813 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="391.7691453623979">0704</text>
+
+				<circle r="5" cx="460.0" cy="391.7691453623979" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="391.7691453623979">Bakhtiar</text>
+
+		</g>
+
+		<g class="hex 0705 populated" onclick="filter('0705')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,461.05118 480.00000,495.69219 440.00000,495.69219 420.00000,461.05118 440.00000,426.41016 480.00000,426.41016 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="461.051177665153">0705</text>
+
+				<circle r="5" cx="460.0" cy="461.051177665153" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="461.051177665153">Unn</text>
+
+		</g>
+
+		<g class="hex 0706 populated" onclick="filter('0706')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,530.33321 480.00000,564.97423 440.00000,564.97423 420.00000,530.33321 440.00000,495.69219 480.00000,495.69219 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="530.333209967908">0706</text>
+
+				<circle r="5" cx="460.0" cy="530.333209967908" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="530.333209967908">Geaxi</text>
+
+		</g>
+
+		<g class="hex 0707 " onclick="filter('0707')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,599.61524 480.00000,634.25626 440.00000,634.25626 420.00000,599.61524 440.00000,564.97423 480.00000,564.97423 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="599.6152422706631">0707</text>
+
+		</g>
+
+		<g class="hex 0708 " onclick="filter('0708')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,668.89727 480.00000,703.53829 440.00000,703.53829 420.00000,668.89727 440.00000,634.25626 480.00000,634.25626 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="668.8972745734181">0708</text>
+
+		</g>
+
+		<g class="hex 0709 populated" onclick="filter('0709')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="500.00000,738.17931 480.00000,772.82032 440.00000,772.82032 420.00000,738.17931 440.00000,703.53829 480.00000,703.53829 "></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="738.1793068761732">0709</text>
+
+				<circle r="5" cx="460.0" cy="738.1793068761732" stroke="gold" fill="gold"></circle>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="460.0" y="738.1793068761732">Stavrou</text>
+
+		</g>
+
+
+		{% comment %}
+		{% for d in data_list %}
+		<g class="hex {{d.2}} {% if d.2 in hex_list %}populated{% endif %}" onclick="filter('{{d.2}}')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="{{d.0}}"></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="{{d.1.0}}" y="{{d.1.1}}">{{d.2}}</text>
+			{% if d.2 in hex_list %}
+				<circle r="5"  cx="{{d.1.0}}" cy="{{d.1.1}}" stroke="gold" fill="gold"/>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="{{d.1.0}}" y="{{d.1.1}}">{{d.3}}</text>
+			{% endif %}
+		</g>
+		{% endfor %}
+		{% endcomment %}
+	</svg>
+
+	<table class="systemTable sortable">
+		<thead>
+			<tr>
+				<th>Hex</th>
+				<th>System</th>
+				<th>World or Station</th>
+				<th>TL</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% regroup planet_list by system.nav_designation as system_list %}
+			{% for s in system_list %}
+			{% for planet in s.list %}
+			<tr class="{{s.grouper}}">
+				<td><a href="{% url 'swn:system' planet.system.alias %}">{{s.grouper}}</a></td>
+				<td><a href="{% url 'swn:system' planet.system.alias %}">{{planet.system}}</a></td>
+				<td><a href="{% url 'swn:planet' planet.system.alias planet.alias%}">{{planet.name}}</a></td>
+				<td>{{planet.tech_level.short}}</td>
+			</tr>
+			{% endfor %}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

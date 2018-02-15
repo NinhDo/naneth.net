@@ -1,0 +1,68 @@
+{% load static %}
+{% load template_tags %}
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="{% static 'swn/css/styles.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'swn/css/elements.css' %}" />
+	{% block css %}{% endblock %}
+	{% block js %}{% endblock %}
+	<link rel="shortcut icon" sizes="32x32" type="image/png" href="{% static 'images/favicon.png'%}" />
+	<link rel="shortcut icon" sizes="16x16" type="image/png" href="{% static 'images/favicon16x16.png'%}" />
+	<meta charset="utf-8" />
+	<meta name="author" content="Ninh Do" />
+	<meta name="description" content="Thing's I've made. Mostly unfinished." />
+
+	<title>{% block title%}Spacebook{% endblock %}</title>
+</head>
+<body>
+	<header class="header">
+		<div class="logo">
+			<a href="/">
+				<img id="logo" src="{% static 'images/logo200x200.png' %}" alt="The Purple Mango Logo">
+			</a>
+		</div>
+		<div class="links">
+			<div class="normalLinks">
+				<a href="/">Home</a>
+				<a href="/projects">Projects</a>
+			</div>
+			<div class="spaceLinks">
+				<a href="{% url 'swn:index' %}">Sector Asgard Sigma</a>
+				{% if user.is_authenticated and user|has_group:"GM" %}
+				<a href="{% url 'swn:faction' %}">Factions</a>
+				{% endif %}
+			</div>
+		</div>
+		{% block login %}
+		{% include "login_info.html" %}
+		{% endblock %}
+	</header>
+	{% block  sublinks %}
+	<div class="sublinks">
+		<a href="{% url 'swn:system_list' %}">Systems</a>
+		<a href="{% url 'swn:planet_directory' %}">Planet Directory</a>
+		<div class="horizontal_line"></div>
+		<a href="{% url 'swn:alien_races' %}">Alien Races</a>
+		<a href="{% url 'swn:political_groups' %}">Political Groups</a>
+		<a href="{% url 'swn:corporations' %}">Corporations</a>
+		<a href="{% url 'swn:religions' %}">Religions</a>
+		{% if user.is_authenticated and user|has_group:"GM" %}
+		<a href="{% url 'swn:npcs' %}">NPCs</a>
+		{% endif %}
+	</div>
+	{% endblock %}
+	<div class="content">
+		{% block content%}{% endblock %}
+	</div>
+	<footer class="footer">
+		{% spaceless %}
+		<div class="footerLinks">
+		<a href="https://github.com/NinhDo" class="social"><svg version="1.1" id="github" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" viewBox="-99.86 741.445 200 200" enable-background="new -99.86 741.445 200 200"  xml:space="preserve"><path d="M0.14,741.443c-55.224,0-100,44.776-100,100.001c0,44.189,28.65,81.665,68.39,94.886c4.999,0.916,6.824-2.173,6.824-4.81 c0-2.38-0.092-10.266-0.14-18.615c-27.808,6.042-33.686-11.792-33.686-11.792c-4.554-11.549-11.103-14.625-11.103-14.625 c-9.088-6.2,0.689-6.079,0.689-6.079c10.041,0.696,15.327,10.304,15.327,10.304c8.923,15.283,23.413,10.864,29.102,8.3 c0.909-6.444,3.497-10.864,6.348-13.354c-22.199-2.526-45.551-11.107-45.551-49.426c0-10.926,3.9-19.837,10.284-26.837 c-1.019-2.54-4.461-12.714,0.989-26.478c0,0,8.386-2.687,27.502,10.254c7.971-2.229,16.523-3.326,25.024-3.363 c8.495,0.037,17.052,1.147,25.037,3.375c19.079-12.952,27.478-10.254,27.478-10.254c5.469,13.775,2.026,23.938,1,26.465 c6.41,7.001,10.279,15.912,10.279,26.838c0,38.415-23.389,46.874-45.667,49.353c3.601,3.101,6.788,9.18,6.788,18.507 c0,13.366-0.134,24.146-0.134,27.441c0,2.661,1.819,5.773,6.885,4.797c39.71-13.244,68.335-50.721,68.335-94.886 C100.14,786.22,55.364,741.443,0.14,741.443z"/></svg></a>
+		<a href="https://twitter.com/NinhDo" class="social"><svg version="1.1" id="twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" viewBox="-99.86 741.445 200 200" enable-background="new -99.86 741.445 200 200" xml:space="preserve"><path fill="#1DA1F2" d="M-36.962,922.717c75.476,0,116.75-62.529,116.75-116.75c0-1.777-0.036-3.545-0.116-5.305 c8.012-5.791,14.976-13.02,20.468-21.248c-7.352,3.268-15.264,5.469-23.563,6.46c8.472-5.079,14.976-13.116,18.044-22.696 c-7.928,4.701-16.708,8.117-26.056,9.961c-7.488-7.976-18.148-12.965-29.952-12.965c-22.66,0-41.036,18.377-41.036,41.028 c0,3.22,0.36,6.353,1.064,9.356c-34.104-1.717-64.344-18.045-84.583-42.872c-3.524,6.063-5.556,13.108-5.556,20.624 c0,14.236,7.244,26.803,18.26,34.156c-6.732-0.209-13.057-2.057-18.584-5.133c-0.006,0.172-0.006,0.34-0.006,0.523 c0,19.873,14.144,36.465,32.919,40.225c-3.448,0.939-7.076,1.443-10.82,1.443c-2.64,0-5.212-0.26-7.712-0.74 c5.224,16.305,20.372,28.168,38.332,28.5c-14.044,11.008-31.736,17.564-50.964,17.564c-3.308,0-6.576-0.188-9.788-0.568 c18.16,11.641,39.724,18.432,62.9,18.432"/></svg></a>
+		<a href="https://www.linkedin.com/in/ninh-do" class="social"><svg version="1.1" id="linkedin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" viewBox="0 0 200 201.27" enable-background="new 0 0 200 201.27" xml:space="preserve"><path fill="#006699" d="M0,14.418C0,6.457,6.618,0,14.779,0h170.441C193.383,0,200,6.457,200,14.418v172.434 c0,7.964-6.617,14.418-14.779,14.418H14.779C6.618,201.27,0,194.816,0,186.852V14.418z"/><path fill="#FFFFFF" d="M60.628,168.485V77.601H30.42v90.884H60.628z M45.524,65.189c10.532,0,17.091-6.979,17.091-15.701 c-0.197-8.917-6.557-15.704-16.891-15.704s-17.089,6.784-17.089,15.704c0,8.721,6.554,15.701,16.692,15.701H45.524L45.524,65.189z"/><path fill="#FFFFFF" d="M77.343,168.485h30.208v-50.753c0-2.716,0.196-5.43,0.992-7.373c2.184-5.427,7.154-11.046,15.5-11.046 c10.932,0,15.306,8.333,15.306,20.552v48.62h30.206v-52.112c0-27.917-14.904-40.907-34.778-40.907 c-16.297,0-23.451,9.109-27.426,15.313h0.2v-13.18H77.346C77.738,86.127,77.346,168.485,77.343,168.485L77.343,168.485z"/></svg></a>
+		</div>
+		{% endspaceless %}
+	</footer>
+</body>
+</html>

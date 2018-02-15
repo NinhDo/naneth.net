@@ -1,0 +1,82 @@
+
+h1 {
+	font-variant: small-caps;
+}
+
+h1, h3 {
+	margin-top: 0.1rem;
+	margin-bottom: 0.1rem;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	align-self: start;
+	color: #1E1721;
+}
+
+table a {
+	font-weight: bold;
+	color: #1E1721;
+	transition: all 0.1s ease-in;
+	font-variant: small-caps;
+}
+
+table a:hover {
+	color: #A55087;
+}
+
+th {
+	background-color: #5D69BE;
+	border: 1px solid black;
+	padding: 0.3rem 0.5rem;
+	font-variant: small-caps;
+}
+
+td {
+	padding: 0.1rem 0.5rem;
+	vertical-align: top;
+	border: 1px solid black;
+}
+
+td:first-child {
+	font-variant: small-caps;
+}
+
+th:first-child, td:first-child {
+	text-align: end;
+}
+
+tr:not(.nostyle):nth-child(odd) {
+	background-color: #B1ABAC;
+}
+
+input[type=text], input[type=password] {
+	border: none;
+	border-bottom: 0.2rem solid #50B5EF;
+	background-color: #9A9DC922;
+	padding: 0.5rem;
+	transition: all 0.1s ease-in;
+}
+
+input[type=text]:hover, input[type=password]:hover, input[type=text]:focus, input[type=password]:focus {
+	background-color: #DDDDDD;
+	border-color: #D664D1;
+}
+
+button[type=submit], input[type=submit] {
+	font-variant-caps: small-caps;
+}
+
+input {
+	font-family: "Ubuntu", "Helvetica", "Arial", "sans-serif";
+}
+
+a {
+	color: #D664D1;
+	transition: all 0.1s ease-in;
+}
+
+a:hover {
+	color: #50B5EF;
+}

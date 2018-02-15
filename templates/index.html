@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load template_tags %}
+
+{% block title %}
+	Ninh Qui Do
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+{% endblock %}
+
+{% block sublinks %}
+{% endblock %}
+
+{% block login %}
+{% if user.is_authenticated %}
+{% include "login_info.html" %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+	<div>
+		<h1>WELCOME TO THE VOID</h1>
+	</div>
+{% endblock %}

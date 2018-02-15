@@ -1,0 +1,222 @@
+/*
+ https://coolors.co/012a36-29274c-7e52a0-d295bf-e6bccd
+ */
+
+body {
+	display: grid;
+	grid-template-columns: minmax(10rem, 1fr) 5fr minmax(10rem, 1fr);
+	grid-template-rows: auto 1fr 5rem;
+	min-height: 100vh;
+	grid-template-areas:
+		"header header header"
+		"leftside main rightside"
+		"footer footer footer";
+	justify-items: stretch;
+	align-content: stretch;
+	margin: 0;
+	font-family: "Ubuntu", "helvetica", "arial", "sans-serif";
+	background-color: #DDDDDD;
+}
+
+/* HEADER START*/
+.header {
+	grid-area: header;
+	display: grid;
+	grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+	grid-template-rows: 8rem;
+	grid-template-areas: "leftnothing logo links login rightnothing";
+	background-color: #1F1721;
+}
+
+.logo {
+	grid-area: logo;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#logo {
+	max-height: 6rem;
+}
+
+.links {
+	display: grid;
+	grid-area: links;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+	align-items: end;
+	justify-self: start;
+}
+
+.links div {
+	display: flex;
+	align-items: flex-end;
+}
+
+.links a {
+	font-size: 1.4rem;
+}
+.links a, .login a, .login span {
+	color: #DDDDDD;
+	font-weight: bold;
+	font-variant: small-caps;
+	text-decoration: none;
+	padding: 1rem;
+	transition: all 0.1s ease-in;
+}
+
+
+.links a:hover, .login a:hover {
+	color: #D664D1;
+
+}
+
+.login {
+	grid-area: login;
+	align-self: end;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.login span {
+	padding: 0 1rem 0 0;
+	text-align: right;
+}
+
+.login a, .login span {
+	font-size: 1.2rem;
+}
+
+.spaceLinks {
+	justify-self: end;
+}
+
+/* HEADER END*/
+
+.content {
+	grid-area: main;
+	padding: 1rem;
+}
+
+.sublinks {
+	grid-area: leftside;
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+}
+
+.sublinks a {
+	color: #1F1721;
+	margin: 0.2rem;
+	padding: 0,1rem;
+	align-self: flex-end;
+}
+
+.sublinks a:hover {
+	color: #A55087;
+}
+
+/* FOOTER START */
+.footer {
+	display: grid;
+	grid-area: footer;
+	align-self: stretch;
+	justify-self: stretch;
+	background-color: #675C63;
+	grid-template-columns: 1fr;
+	align-items: center;
+	justify-items: center;
+}
+
+#twitter, #linkedin, #github {
+	width: 2rem;
+	height: 2rem;
+	margin: 1rem;
+}
+/* FOOTER END*/
+
+.subtitle {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas: "type homeworld";
+	grid-gap: 1rem;
+	justify-content: start;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: .5rem;
+	border-radius: 0.5rem;
+
+	position: absolute;
+	z-index: 1;
+	width: 20rem;
+	top: 150%;
+	left: 50%;
+	margin-left: -10rem;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+	content: " ";
+	position: absolute;
+	bottom: 100%;  /* At the top of the tooltip */
+	left: 50%;
+	margin-left: -1rem;
+	border-width: 0.5rem;
+	border-style: solid;
+	border-color: transparent transparent black transparent;
+}
+
+.error {
+	color: red;
+}
+
+.gmonly {
+	color: #A55087;
+}
+
+.horizontal_line {
+	height: 1px;
+	width: auto;
+	background-color: black;
+}
+
+.hidden {
+	display:none;
+}
+
+.editButton {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.editButton svg {
+	height: 1.5rem!important;
+	width: 1.5rem!important;
+}
+
+.editButton > svg > path {
+	fill: #D664D1;
+	transition: all 0.1s ease-in;
+}
+
+.editButton:hover > svg > path {
+	fill: #50B5EF;
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load template_tags %}
+
+{% block js %}
+<script src="{% static 'swn/sorttable.js' %}"></script>
+<script src="{% static 'swn/reputation.js' %}"></script>
+{% endblock %}
+
+{% block title %}Factions{% endblock %}
+{% block content %}
+<h1>Factions</h1>
+<table class="factionTable sortable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<th>Force</th>
+			<th>Cunning</th>
+			<th>Wealth</th>
+			<th>Tags</th>
+			<th>Homeworld</th>
+			<th>System</th>
+			<th>PC Reputation</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for faction in faction_list %}
+		<tr>
+			<td><a href="{% url 'swn:faction_overview' faction.alias %}"> {{faction.name}}</a></td>
+			<td style="min-width:10rem">{{faction.faction_type}}</td>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<td style="text-align:center">{{faction.force}}</td>
+			<td style="text-align:center">{{faction.cunning}}</td>
+			<td style="text-align:center">{{faction.wealth}}</td>
+			<td style="min-width:8rem">
+				{% for tag in faction.tags.all%}
+				{{tag}}{% if not forloop.last %}<br />{% endif%}
+				{% empty %}
+				No tags
+				{% endfor %}
+			</td>
+			<td>{{faction.homeworld}}</td>
+			<td>{{faction.homeworld.system}}</td>
+			<td class="reputation">{{faction.pc_reputation}}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

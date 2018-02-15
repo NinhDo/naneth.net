@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/authentication.css' %}" />
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/placeholder_hack.js' %}"></script>
+{% endblock %}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block sublinks %}
+{% endblock %}
+
+{% block content %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+	please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+<form id="login_form" method="post" action="{% url 'login' %}">
+	{% csrf_token %}
+
+	{% if form.errors %}
+	<p class="error">Your username and password didn't match. Please try again.</p>
+	{% endif %}
+	<div class="loginGrid">
+		{{ form.username.label_tag }}
+		{{ form.username }}
+		{{ form.password.label_tag }}
+		{{ form.password }}
+		<div>
+			<a href="{% url 'signup' %}">Create user</a>
+			<input type="submit" value="Log In" />
+			<input type="hidden" name="next" value="{{ next }}" />
+		</div>
+	</div>
+</form>
+
+{% endblock %}

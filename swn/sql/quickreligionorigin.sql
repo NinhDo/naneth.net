@@ -1,0 +1,12 @@
+INSERT INTO "swn_quickreligionorigin" VALUES (1, 'Paganism', 'Pagans', 'Pagan');
+INSERT INTO "swn_quickreligionorigin" VALUES (2, 'Roman Catholicism', 'Roman Catholics', 'Roman Catholic');
+INSERT INTO "swn_quickreligionorigin" VALUES (3, 'Eastern Orthodox Christianity', 'Eastern Orthodox Christians', 'Eastern Orthodox');
+INSERT INTO "swn_quickreligionorigin" VALUES (4, 'Protestant Christianity', 'Protestant Christians', 'Protestant');
+INSERT INTO "swn_quickreligionorigin" VALUES (5, 'Buddhism', 'Buddhists', 'Buddhist');
+INSERT INTO "swn_quickreligionorigin" VALUES (6, 'Judaism', 'Judaism', 'Jewish');
+INSERT INTO "swn_quickreligionorigin" VALUES (7, 'Islam', 'Muslims', 'Muslim');
+INSERT INTO "swn_quickreligionorigin" VALUES (8, 'Taoism', 'Taoists', 'Taoist');
+INSERT INTO "swn_quickreligionorigin" VALUES (9, 'Hinduism', 'Hinduists', 'Hindu');
+INSERT INTO "swn_quickreligionorigin" VALUES (10, 'Zoroastrianism', 'Zoroastrianists', 'Zoroastrian');
+INSERT INTO "swn_quickreligionorigin" VALUES (11, 'Confucianism', 'Confucianists', 'Confucian');
+INSERT INTO "swn_quickreligionorigin" VALUES (12, 'Ideology', 'Ideologists', 'Ideologic');

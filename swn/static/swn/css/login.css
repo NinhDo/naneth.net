@@ -1,0 +1,26 @@
+.loginGrid {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto;
+	grid-gap: 1rem;
+	justify-content: center;
+}
+
+.loginGrid label {
+	justify-self: end;
+	font-variant: small-caps;
+}
+
+.loginGrid input {
+	justify-self: start;
+}
+
+.loginGrid div {
+	grid-column: 1/3;
+	justify-self: end;
+}
+
+.error {
+	display: flex;
+	justify-content: center;
+}

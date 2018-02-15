@@ -1,0 +1,73 @@
+.sectorwrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr auto;
+	grid-template-areas:
+		"top top"
+		"content content";
+	grid-gap: 1rem;
+	justify-items: center;
+}
+
+.sectorwrapper h1 {
+	grid-area: top;
+}
+
+.hex {
+	font-size: .6rem;
+}
+
+.populated {
+	cursor: pointer;
+}
+
+.populated > polygon{
+	fill: #5D69BE;
+	transition: all 0.1s ease-in;
+}
+
+.hex:not(.populated) polygon {
+	fill: #9A9DC9;
+}
+
+.hex:hover > polygon {
+	fill: #E69FCD;
+}
+
+text {
+	color: #1F1721;
+	font-weight: bold;
+}
+
+text:first-of-type {
+	transform: translate(0, -1.7em);
+}
+
+text:last-of-type {
+	transform: translate(0, 1.6em);
+}
+
+.sectorMap {
+	justify-self: end;
+}
+
+.systemTable, .factionTable {
+	justify-self: stretch;
+}
+
+.systemTable a {
+	text-decoration: none;
+}
+
+
+.systemTable th:nth-child(2),
+.systemTable td:nth-child(2),
+.systemTable th:nth-child(3),
+.systemTable td:nth-child(3) {
+	text-align: start;
+}
+
+
+.selected {
+	background: #E69FCD!important;
+}

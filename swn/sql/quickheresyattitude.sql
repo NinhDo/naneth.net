@@ -1,0 +1,10 @@
+INSERT INTO "swn_quickheresyattitude" VALUES (1, 'Filial: the sect honors and respects the orthodox faith, but feels it is substantially in error.', 'Filial');
+INSERT INTO "swn_quickheresyattitude" VALUES (2, 'Anathematic: the orthodox are spiritually worse than infidels, and their ways must be avoided at all costs.', 'Anathematic');
+INSERT INTO "swn_quickheresyattitude" VALUES (3, 'Evangelical: the sect feels compelled to teach the orthodox the better truth of their ways.', 'Evangelical');
+INSERT INTO "swn_quickheresyattitude" VALUES (4, 'Contemptuous: the orthodox are spiritually lost and ignoble.', 'Contemptuous');
+INSERT INTO "swn_quickheresyattitude" VALUES (5, 'Aversion: the sect wishes to shun and avoid the orthodox.', 'Aversive');
+INSERT INTO "swn_quickheresyattitude" VALUES (6, 'Hatred: the sect wishes the death or conversion of the orthodox.', 'Hateful');
+INSERT INTO "swn_quickheresyattitude" VALUES (7, 'Indifference: the sect has no particular animus or love for the orthodox.', 'Indifferent');
+INSERT INTO "swn_quickheresyattitude" VALUES (8, 'Obedience: the sect feels obligated to obey the orthodox hierarchy in all matters not related to their specific faith.', 'Obedient');
+INSERT INTO "swn_quickheresyattitude" VALUES (9, 'Legitimist: the sect views itself as the “true” orthodox faith and the present orthodox hierarchy as pretenders to their office.', 'Legitimist');
+INSERT INTO "swn_quickheresyattitude" VALUES (10, 'Purificationist: the sect''s austerities, sufferings, and asceticisms are necessary to purify the orthodox.', 'Purificationist');

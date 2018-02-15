@@ -1,0 +1,10 @@
+INSERT INTO "swn_npcproblems" VALUES (1, 'Grudge against local authorities.');
+INSERT INTO "swn_npcproblems" VALUES (2, 'Has a secret kept from their family.');
+INSERT INTO "swn_npcproblems" VALUES (3, 'Chronic illness');
+INSERT INTO "swn_npcproblems" VALUES (4, 'Enmity of a local psychic');
+INSERT INTO "swn_npcproblems" VALUES (5, 'Has enemies at work');
+INSERT INTO "swn_npcproblems" VALUES (6, 'Owes loan sharks');
+INSERT INTO "swn_npcproblems" VALUES (7, 'Threatened with loss of spouse, sibling, or child');
+INSERT INTO "swn_npcproblems" VALUES (8, 'Close relative in trouble with the law');
+INSERT INTO "swn_npcproblems" VALUES (9, 'Drug or behavioral addict');
+INSERT INTO "swn_npcproblems" VALUES (10, 'Blackmailed by enemy');

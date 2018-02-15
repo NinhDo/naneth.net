@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block content %}
+<h1>Sector Asgard Sigma</h1>
+{% if system_list %}
+<table class="sector_table sortable">
+	<thead>
+		<tr>
+			<th>Hex</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for system in system_list %}
+		<tr>
+			<td><a href="{% url 'swn:system' system.alias %}"> {{system.nav_designation}}</a></td>
+			<td><a href="{% url 'swn:system' system.alias %}"> {{system.name}}</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+<div class="login">
+	{% if not user.is_authenticated %}
+	<a href="{% url 'login' %}">Log in</a>
+	{% else %}
+	<span>Logged in as {{user.first_name}}</span>
+	<a href="{% url 'logout' %}">Log out</a>
+	{% endif %}
+</div>

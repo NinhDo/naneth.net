@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block sublinks %}
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+	please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login_view' %}">
+	{% csrf_token %}
+
+	<div>
+		<span>{{ form.username.label_tag }}</span>
+		<span>{{ form.username }}</span>
+	</div>
+	<div>
+		<span>{{ form.password.label_tag }}</span>
+		<span>{{ form.password }}</span>
+	</div>
+
+	<div>
+		<input type="submit" value="Log In" />
+		<input type="hidden" name="next" value="{{ next }}" />
+	</div>
+</form>
+
+{% endblock %}

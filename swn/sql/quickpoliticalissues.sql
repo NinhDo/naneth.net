@@ -1,0 +1,12 @@
+INSERT INTO "swn_quickpoliticalissues" VALUES (1, 'Poverty among the group''s membership.', 'Poverty');
+INSERT INTO "swn_quickpoliticalissues" VALUES (2, 'Social hostility to the group''s membership.', 'Bigotry');
+INSERT INTO "swn_quickpoliticalissues" VALUES (3, 'Immigration and immigrants.', 'Immigration');
+INSERT INTO "swn_quickpoliticalissues" VALUES (4, 'The memberships'' important industries.', 'Industry');
+INSERT INTO "swn_quickpoliticalissues" VALUES (5, 'Religion in public life.', 'Religion');
+INSERT INTO "swn_quickpoliticalissues" VALUES (6, 'Gender roles and sexual mores.', 'Gender Roles');
+INSERT INTO "swn_quickpoliticalissues" VALUES (7, 'Culture of the group membership.', 'Tradition');
+INSERT INTO "swn_quickpoliticalissues" VALUES (8, 'Military preparedness.', 'Military');
+INSERT INTO "swn_quickpoliticalissues" VALUES (9, 'Governmental reform.', 'Reform');
+INSERT INTO "swn_quickpoliticalissues" VALUES (10, 'Secession.', 'Secession');
+INSERT INTO "swn_quickpoliticalissues" VALUES (11, 'Foreign relations.', 'Foreign Policy');
+INSERT INTO "swn_quickpoliticalissues" VALUES (12, 'Wealth redistribution.', 'Welfare');

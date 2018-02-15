@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/sector.css' %}" />
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/sorttable.js' %}"></script>
+<script src="{% static 'swn/target.js' %}"></script>
+{% endblock %}
+
+{% block title %}Sector Asgard Sigma{% endblock %}
+
+{% block content%}
+<div class="sectorwrapper">
+	<h1>Sector Asgard Sigma</h1>
+	<svg class="sectorMap" mlns="http://www.w3.org/2000/svg" version="1.1" width="{{w}}" height="{{h}}" xmlns:xlink="http://www.w3.org/1999/xlink">
+		{% for d in data_list %}
+		<g class="hex {{d.2}} {% if d.2 in hex_list %}populated{% endif %}" onclick="filter('{{d.2}}')">
+			<polygon fill-opacity="1" stroke-opacity="1" stroke="black" fill="white" points="{{d.0}}"></polygon>
+			<text text-anchor="middle" dominant-baseline="mathematical" x="{{d.1.0}}" y="{{d.1.1}}">{{d.2}}</text>
+			{% if d.2 in hex_list %}
+				<circle r="5"  cx="{{d.1.0}}" cy="{{d.1.1}}" stroke="gold" fill="gold"/>
+				<text text-anchor="middle" dominant-baseline="mathematical" x="{{d.1.0}}" y="{{d.1.1}}">{{d.3}}</text>
+			{% endif %}
+		</g>
+		{% endfor %}
+	</svg>
+
+	<table class="systemTable sortable">
+		<thead>
+			<tr>
+				<th>Hex</th>
+				<th>System</th>
+				<th>World or Station</th>
+				<th>TL</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% regroup planet_list by system.nav_designation as system_list %}
+			{% for s in system_list %}
+			{% for planet in s.list %}
+			<tr class="{{s.grouper}}">
+				<td><a href="{% url 'swn:system' planet.system.alias %}">{{s.grouper}}</a></td>
+				<td><a href="{% url 'swn:system' planet.system.alias %}">{{planet.system}}</a></td>
+				<td><a href="{% url 'swn:planet' planet.system.alias planet.alias%}">{{planet.name}}</a></td>
+				<td>{{planet.tech_level.short}}</td>
+			</tr>
+			{% endfor %}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

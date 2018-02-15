@@ -1,0 +1,12 @@
+INSERT INTO "swn_npcmotivation" VALUES (1, 'Greed, because nothing else they can do pays better');
+INSERT INTO "swn_npcmotivation" VALUES (2, 'Idealistic about the job');
+INSERT INTO "swn_npcmotivation" VALUES (3, 'Sense of social duty');
+INSERT INTO "swn_npcmotivation" VALUES (4, 'Force of habit takes them through the day');
+INSERT INTO "swn_npcmotivation" VALUES (5, 'Seeks to please another');
+INSERT INTO "swn_npcmotivation" VALUES (6, 'Feels inadequate as anything else');
+INSERT INTO "swn_npcmotivation" VALUES (7, 'Family tradition');
+INSERT INTO "swn_npcmotivation" VALUES (8, 'Religious obligation or vow');
+INSERT INTO "swn_npcmotivation" VALUES (9, 'Nothing better to do, and they need the money');
+INSERT INTO "swn_npcmotivation" VALUES (10, 'They''re quitting at the first good opportunity');
+INSERT INTO "swn_npcmotivation" VALUES (11, 'It''s a stepping stone to better things');
+INSERT INTO "swn_npcmotivation" VALUES (12, 'Spite against an enemy discomfited by the work');

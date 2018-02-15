@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load template_tags %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'swn/css/planet.css' %}" />
+{% endblock %}
+
+{% block js %}
+{% if user.is_authenticated and user|has_group:"GM" %}
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="{% static 'swn/js/jquery-3.3.1.min.js' %}"></script>
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
+<script src="{% static 'swn/js/planet_markdown.js' %}"></script>
+<script src="{% static 'swn/js/jquery.are-you-sure.js' %}"></script>
+{% endif %}
+{% endblock %}
+
+{% block title %}Planet: {{planet.name}}{% endblock %}
+
+{% block content %}
+<div class="planet">
+	<h1>Planet: {{planet.name}}</h1>
+	<h2>Nav Designation: <a href="{% url 'swn:system' system.alias %}">{{planet.system_name_designation}}</a></h2>
+	<div class="planetBlock">
+		<span>Atmosphere</span>
+		<span>{{planet.atmosphere}}</span>
+		<span>Temperature</span>
+		<span>{{planet.temperature}}</span>
+		<span>Biosphere</span>
+		<span>{{planet.biosphere}}</span>
+		<span>Population</span>
+		<span>{{planet.population}}</span>
+		<span>Tech Level</span>
+		<span>{{planet.tech_level}}</span>
+	</div>
+	{% if user.is_authenticated and user|has_group:"GM" %}
+	<div class="tags gmonly">
+		<div class="tag1">
+			{% for name, value in planet.tag1.get_fields %}
+			{% if not forloop.first and not forloop.last %}
+			{% if forloop.counter0 == 1 %}
+			<h3>{{value}}</h3>
+			<div class="horizontal_line"></div>
+			{% elif forloop.counter0 == 2 %}
+			<p>{{value}}</p>
+			{% else %}
+			<div class="{{name}}">
+				<h4>{{name|capfirst}}</h4>
+				<div class="horizontal_line"></div>
+				<p>{{value}}</p>
+			</div>
+			{% endif %}
+			{% endif %}
+			{% endfor %}
+		</div>
+		<div class="tag2">
+			{% for name, value in planet.tag2.get_fields %}
+			{% if not forloop.first and not forloop.last %}
+			{% if forloop.counter0 == 1 %}
+			<h3>{{value}}</h3>
+			<div class="horizontal_line"></div>
+			{% elif forloop.counter0 == 2 %}
+			<p>{{value}}</p>
+			{% else %}
+			<div class="{{name}}">
+				<h4>{{name|capfirst}}</h4>
+				<div class="horizontal_line"></div>
+				<p>{{value}}</p>
+			</div>
+			{% endif %}
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+
+	<form id="planet_form" method="post" data-save-url="{% url 'swn:save_planet_notes' %}?planet={{planet.id}}">
+		{% csrf_token %}
+		<div id="planet_notes" class="gmonly">
+			<div class="capital_and_government">
+				<h4>Capitals and Government <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h4>
+				<div class="horizontal_line"></div>
+				<div class="notes_markdown"></div>
+				<textarea form="planet_form" name="capital_and_government" cols="50" rows="5" class="notes_textarea" >{% if planet.capital_and_government %}{{planet.capital_and_government}}{% endif %}</textarea>
+			</div>
+			<div class="cultural_notes">
+				<h4>Cultural Notes <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h4>
+				<div class="horizontal_line"></div>
+				<div class="notes_markdown"></div>
+				<textarea form="planet_form" name="cultural_notes" cols="50" rows="5" class="notes_textarea" >{% if planet.cultural_notes %}{{planet.cultural_notes}}{% endif %}</textarea>
+			</div>
+			<div class="adventures_prepared">
+				<h4>Adventures Prepared <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h4>
+				<div class="horizontal_line"></div>
+				<div class="notes_markdown"></div>
+				<textarea form="planet_form" name="adventures_prepared" cols="50" rows="5" class="notes_textarea" >{% if planet.adventures_prepared %}{{planet.adventures_prepared}}{% endif %}</textarea>
+			</div>
+			<div class="party_activities_on_this_world">
+				<h4>Party Activities on this World <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h4>
+				<div class="horizontal_line"></div>
+				<div class="notes_markdown"></div>
+				<textarea form="planet_form" name="party_activities_on_this_world" cols="50" rows="5" class="notes_textarea" >{% if planet.party_activities_on_this_world %}{{planet.party_activities_on_this_world}}{% endif %}</textarea>
+			</div>
+		</div>
+	</form>
+	{% endif %}
+</div>
+{% endblock %}
