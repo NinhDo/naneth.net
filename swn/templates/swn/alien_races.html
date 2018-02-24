@@ -10,15 +10,21 @@
 		<tr>
 			<th>Name</th>
 			<th>Body Type</th>
-      <th>Distinguishing Features</th>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<th>Lenses</th>
+			<th>Structure</th>
+			{% endif %}
 		</tr>
 	</thead>
 	<tbody>
 		{% for alien in alien_races_list %}
 		<tr>
 			<td><a href="">{{alien.name}}</a></td>
-			<td><a href="">{{alien.body_type.name}}</a></td>
-      <td><a href="">{{alien.body_type.desc}}</a></td>
+			<td>{{alien.body_type.name}}</td>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<td>{{alien.lenses1}}, {{alien.lenses2}}</td>
+			<td>{{alien.structure1}}{% if alien.structure2 %}, {{alien.structure2}}{% endif %}</td>
+			{% endif %}
 		</tr>
 		{% endfor %}
 	</tbody>
