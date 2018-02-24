@@ -16,9 +16,6 @@ urlpatterns = [
 	re_path(r'^corporations', views.corporations, name="corporations"),
 	re_path(r'^religions', views.religions, name="religions"),
 	re_path(r'^npcs', views.npcs, name="npcs"),
-
-
-
 	re_path(r'^save_planet_notes', views.save_planet_notes, name="save_planet_notes"),
 	re_path(r'^save_notes', views.save_notes, name="save_notes"),
 ]
