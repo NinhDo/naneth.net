@@ -15,3 +15,4 @@ tests/report/
 *.env
 spaceenv/
 static/
+.remote-sync.json
