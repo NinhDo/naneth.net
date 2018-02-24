@@ -24,9 +24,9 @@ urlpatterns = [
 	re_path(r'^$', index, name="index"),
 	re_path(r'^projects/$', projects, name="projects"),
 	re_path(r'^space/', include("swn.urls")),
+    re_path(r'^api/', include("api.urls")),
 	re_path(r'^admin/', admin.site.urls),
 	re_path(r'^login/$', auth_views.login, name="login"),
 	re_path(r'^logout/$', auth_views.logout, name="logout"),
 	re_path(r'^signup/$', swn_views.signup, name="signup"),
-    re_path(r'^api/hello', api_views.hello, name="hello"),
 ]
