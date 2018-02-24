@@ -9,8 +9,10 @@ from ipaddress import ip_address, ip_network
 @csrf_exempt
 def hello(request):
     # Verify if request came from GitHub
+    print("hello")
+    print(request)
     forwarded_for = u'{}'.format(request.META.get('HTTP_X_FORWARDED_FOR'))
-    print(forwarded_for)
+    print(request.META)
     client_ip_address = ip_address(forwarded_for)
     print(client_ip_address)
     whitelist = requests.get('https://api.github.com/meta').json()['hooks']
