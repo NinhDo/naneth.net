@@ -18,6 +18,7 @@ from django.urls import include, path, re_path
 from django.contrib.auth import views as auth_views
 from swn import views as swn_views
 from space.views import index, projects
+from api import views as api_views
 
 urlpatterns = [
 	re_path(r'^$', index, name="index"),
@@ -27,4 +28,5 @@ urlpatterns = [
 	re_path(r'^login/$', auth_views.login, name="login"),
 	re_path(r'^logout/$', auth_views.logout, name="logout"),
 	re_path(r'^signup/$', swn_views.signup, name="signup"),
+    re_path(r'^api/hello', api_views.hello, name="hello"),
 ]
