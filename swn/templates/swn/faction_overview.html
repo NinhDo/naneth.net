@@ -10,11 +10,13 @@
 {% block  js %}
 <script src="{% static 'swn/js/reputation.js' %}"></script>
 {% if user.is_authenticated %}
+{% if user|has_group:'GM' or user|has_group:'Player' %}
 <script src="{% static 'swn/js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'swn/js/jquery.are-you-sure.js' %}"></script>
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="{% static 'swn/js/markdown.js' %}"></script>
+{% endif %}
 {% endif %}
 {% endblock%}
 
@@ -85,7 +87,7 @@
 			<div id="markdown"></div>
 		</div>
 	</form>
-	{% elif user|has_group:"Player" %}
+{% elif user|has_group:"Player" %}
 	<div class="bar"></div>
 	<form id="notes_form" name="notes_form" method="post" data-save-url="{% url 'swn:save_notes' %}?id={{faction.notes.id}}">
 		{% csrf_token %}
@@ -95,7 +97,7 @@
 			<div id="markdown"></div>
 		</div>
 	<form>
-	{% endif %}
+{% endif %}
 </div>
 {% endif %}
 {% endblock %}

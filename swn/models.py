@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -308,6 +309,7 @@ Structure
 """
 class Alien(models.Model):
 	name = models.CharField(max_length=200)
+	alias = models.CharField(max_length=200, blank=True, null=True)
 	body_type = models.ForeignKey('AlienBodyType', on_delete=models.CASCADE)
 	lenses1 = models.ForeignKey('AlienLenses', on_delete=models.CASCADE)
 	lenses2 = models.ForeignKey('AlienLenses', on_delete=models.CASCADE, related_name="+")
@@ -460,3 +462,5 @@ class Faction_Asset(models.Model):
 class Notes(models.Model):
 	player_notes = models.TextField(blank="True", default="")
 	gm_notes = models.TextField(blank="True", default="")
+	last_modified = models.DateTimeField(auto_now=True)
+	last_editor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)

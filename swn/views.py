@@ -130,7 +130,7 @@ def corporations(request):
 	context = {
 		"corporations_list": corporations_list,
 	}
-	return render(request, "swn/planet_directory.html", context)
+	return render(request, "swn/corporations.html", context)
 
 
 def religions(request):
@@ -138,7 +138,7 @@ def religions(request):
 	context = {
 		"religions_list": religions_list,
 	}
-	return render(request, "swn/planet_directory.html", context)
+	return render(request, "swn/religions.html", context)
 
 
 def npcs(request):
@@ -146,7 +146,7 @@ def npcs(request):
 	context = {
 		"npcs_list": npcs_list,
 	}
-	return render(request, "swn/planet_directory.html", context)
+	return render(request, "swn/npcs.html", context)
 
 
 def signup(request):
@@ -180,7 +180,9 @@ def save_notes(request):
 	if request.method == "POST":
 		form = NotesForm(request.POST or None, instance=instance)
 		if form.is_valid:
-			form.save()
+			notes = form.save(commit=False)
+			notes.last_editor = request.user
+			notes.save()
 		else:
 			return JsonResponse({"error_message": "Invalid form"})
 	return JsonResponse({})

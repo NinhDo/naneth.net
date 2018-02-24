@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block title %}Planets | Sector Asgard Sigma{% endblock %}
+
+{% block content %}
+<h1>Planets</h1>
+{% if planet_list %}
+<table class="sector_table sortable">
+	<thead>
+		<tr>
+			<th>Hex</th>
+			<th>System</th>
+      <th>Planet Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for planet in planet_list %}
+		<tr>
+			<td><a href="{% url 'swn:system' planet.system.alias %}">{{planet.system.nav_designation}}</a></td>
+			<td><a href="{% url 'swn:system' planet.system.alias %}">{{planet.system.name}}</a></td>
+      <td><a href="{% url 'swn:planet' planet.system.alias planet.alias %}">{{planet.name}}</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}

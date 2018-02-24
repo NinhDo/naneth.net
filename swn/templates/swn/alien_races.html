@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block title %}Alien Races | Sector Asgard Sigma{% endblock %}
+
+{% block content %}
+<h1>Alien Races</h1>
+{% if alien_races_list %}
+<table class="sortable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Body Type</th>
+      <th>Distinguishing Features</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for alien in alien_races_list %}
+		<tr>
+			<td><a href="">{{alien.name}}</a></td>
+			<td><a href="">{{alien.body_type.name}}</a></td>
+      <td><a href="">{{alien.body_type.desc}}</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}

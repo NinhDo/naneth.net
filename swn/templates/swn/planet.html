@@ -7,12 +7,15 @@
 {% endblock %}
 
 {% block js %}
-{% if user.is_authenticated and user|has_group:"GM" %}
+{% if user.is_authenticated %}
+{% if user|has_group:'GM' or user|has_group:'Player' %}
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="{% static 'swn/js/jquery-3.3.1.min.js' %}"></script>
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
 <script src="{% static 'swn/js/planet_markdown.js' %}"></script>
+<script src="{% static 'swn/js/markdown.js' %}"></script>
 <script src="{% static 'swn/js/jquery.are-you-sure.js' %}"></script>
+{% endif %}
 {% endif %}
 {% endblock %}
 
@@ -101,6 +104,16 @@
 				<div class="notes_markdown"></div>
 				<textarea form="planet_form" name="party_activities_on_this_world" cols="50" rows="5" class="notes_textarea" >{% if planet.party_activities_on_this_world %}{{planet.party_activities_on_this_world}}{% endif %}</textarea>
 			</div>
+		</div>
+	</form>
+	{% elif user.is_authenticated and user|has_group:"Player"%}
+	<form id="notes_form" name="notes_form" method="post" data-save-url="{% url 'swn:save_notes' %}?id={{planet.notes.id}}">
+		{% csrf_token %}
+		<div class="horizontal_line"></div>
+		<div class="notes">
+			<h3>Notes <button type="button" class="editButton" onclick="toggleMarkdown(this)"><i class="fas fa-edit"></i></button></h3>
+			<textarea class="hidden" name="player_notes" form="notes_form" id="notes" rows="10", cols="50">{{faction.notes.player_notes}}</textarea>
+			<div id="markdown"></div>
 		</div>
 	</form>
 	{% endif %}

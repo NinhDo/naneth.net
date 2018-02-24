@@ -41,5 +41,5 @@ class NotesForm(forms.ModelForm):
 		model=Notes
 		fields = (
 			"player_notes",
-			"gm_notes"
+			"gm_notes",
 		)

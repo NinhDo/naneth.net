@@ -11,11 +11,11 @@ urlpatterns = [
 	re_path(r'^(?P<system_name>[A-z-]+)/$', views.system, name="system"),
 	re_path(r'^(?P<system_name>[A-z-]+)/(?P<planet_name>[A-z-]+)/$', views.planet, name="planet"),
 	re_path(r'^planet', views.planet_directory, name="planet_directory"),
-	re_path(r'^alien', views.alien_races, name="alien_races"),
-	re_path(r'^politicalgroup', views.political_groups, name="political_groups"),
-	re_path(r'^corporation', views.corporations, name="corporations"),
-	re_path(r'^religion', views.religions, name="religions"),
-	re_path(r'^npc', views.npcs, name="npcs"),
+	re_path(r'^aliens', views.alien_races, name="alien_races"),
+	re_path(r'^politicalgroups', views.political_groups, name="political_groups"),
+	re_path(r'^corporations', views.corporations, name="corporations"),
+	re_path(r'^religions', views.religions, name="religions"),
+	re_path(r'^npcs', views.npcs, name="npcs"),
 
 
 
