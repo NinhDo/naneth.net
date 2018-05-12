@@ -10,6 +10,9 @@ from django.utils.encoding import force_bytes
 
 import requests
 from ipaddress import ip_address, ip_network
+import subprocess
+
+script_path = "/var/scripts/redeploy.sh"
 
 # Create your views here.
 @require_POST
@@ -42,6 +45,7 @@ def hello(request):
     if event == 'ping':
         return HttpResponse('pong')
     elif event == 'push':
+        subprocess.call([script_path])
         return HttpResponse('success')
 
     return HttpResponse(status=204)
