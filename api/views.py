@@ -18,9 +18,17 @@ script_path = "/var/scripts/redeploy.sh"
 @require_POST
 @csrf_exempt
 def hello(request):
+    print(request.META)
     # Verify if request came from GitHub
     forwarded_for = u'{}'.format(request.META.get('REMOTE_ADDR'))
-    client_ip_address = ip_address(forwarded_for)
+    forwarded_for2 = u'{}'.format(request.META.get('HTTP_X_REAL_IP'))
+    client_ip_address = ""
+
+    try:
+        client_ip_address = ip_address(forwarded_for)
+    except:
+        client_ip_address = ip_address(forwarded_for2)
+
     whitelist = requests.get('https://api.github.com/meta').json()['hooks']
 
     for valid_ip in whitelist:

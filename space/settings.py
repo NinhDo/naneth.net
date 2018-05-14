@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import raven
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+#Admin stuff
+#ADMINS =  config('ADMINS')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +31,7 @@ GITHUB_WEBHOOK_KEY = config('GITHUB_WEBHOOK_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ["naneth.net", "37.139.1.201"]
+ALLOWED_HOSTS = ["naneth.net", "www.naneth.net", "37.139.1.201"]
 
 # Application definition
 
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'swn.apps.SwnConfig',
     'martor',
     'space',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
 ]
 
 ROOT_URLCONF = 'space.urls'
@@ -131,7 +136,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/naneth.net/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/var/www/naneth.net/static',
 ]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -146,3 +150,12 @@ CSRF_COOKIE_SECURE = True
 
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = "/space/"
+
+
+#Sentry stuff
+RAVEN_CONFIG = {
+   'dsn': 'https://5d0e5c0aa1844f96813aa7186656cb01:0cee7a72fa8d42b48f355c5789a941a3@sentry.io/1205792',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': BASE_DIR,
+}
