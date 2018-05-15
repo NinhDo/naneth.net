@@ -2,6 +2,8 @@
  https://coolors.co/012a36-29274c-7e52a0-d295bf-e6bccd
  */
 
+@import url("https://rsms.me/inter/inter-ui.css");
+
 body {
 	display: grid;
 	grid-template-columns: minmax(10rem, 1fr) 5fr minmax(10rem, 1fr);
@@ -14,7 +16,7 @@ body {
 	justify-items: stretch;
 	align-content: stretch;
 	margin: 0;
-	font-family: "Ubuntu", "helvetica", "arial", "sans-serif";
+	font-family: "Inter UI", "Ubuntu", "helvetica", "arial", "sans-serif";
 	background-color: #DDDDDD;
 }
 
