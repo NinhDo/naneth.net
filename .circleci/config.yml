@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/space
     docker:
-      - image: circleci/python:3.5.2
+      - image: circleci/python:3.6.1
 #      - image: circleci/postgres:9.5.12
 #        enironment:
 #          POSTGRES_USER: root
