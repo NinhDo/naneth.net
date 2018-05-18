@@ -44,9 +44,9 @@ jobs:
           environment:
             SECRET_KEY: $SECRET_KEY
             GITHUB_WEBHOOK_KEY: $GITHUB_WEBHOOK_KEY
-            DB_NAME: $DB_NAME
-            DB_USER: $DB_USER
-            DB_PASS: $DB_PASS
+            DB_NAME: 'circle_test'
+            DB_USER: 'circleci'
+            DB_PASS: ''
             DB_HOST: 'localhost'
             DEBUG: True
           command: |
