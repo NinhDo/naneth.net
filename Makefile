@@ -10,4 +10,4 @@ run:
 dbshell:
 	python manage.py dbshell
 
-.PHONY: swn migrate run dbshell source
+.PHONY: swn migrate run dbshell
