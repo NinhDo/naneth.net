@@ -224,8 +224,8 @@ class signupTestCase(TestCase):
 			"password2": "test1234"
 		}
 
-		response = self.client.post(path=reverse("signup"), data=form_data)
-		self.assertEqual(response.status_code, 302) # Redirected to /space
+		response = self.client.post(path=reverse("signup"), data=form_data, follow=True)
+		self.assertEqual(response.redirect_chain[len(response.redirect_chain)-2][1], 302) # Redirected to /space (-2 because the last one is a 301, and we want the second to last one)
 		user = auth.get_user(self.client)
 		self.assertTrue(user.is_authenticated)
 
@@ -239,13 +239,13 @@ class save_planet_notesTestCase(TestCase):
 		Group.objects.create(name = "GM")
 
 	def test_not_logged_in(self):
-		response = self.client.get(reverse("swn:save_planet_notes"))
-		self.assertEqual(response.status_code, 302) # Should redirect
+		response = self.client.get(reverse("swn:save_planet_notes"), follow=True)
+		self.assertEqual(response.redirect_chain[len(response.redirect_chain)-1][1], 302) # Should redirect
 
 	def test_not_gm(self):
 		self.client._login(self.client.user)
-		response = self.client.get(reverse("swn:save_planet_notes"))
-		self.assertEqual(response.status_code, 302) # Should redirect
+		response = self.client.get(reverse("swn:save_planet_notes"), follow=True)
+		self.assertEqual(response.redirect_chain[len(response.redirect_chain)-1][1], 302) # Should redirect
 
 	def test_get_incorrect_parameter(self):
 		self.client._login(self.client.user)
@@ -296,8 +296,7 @@ class save_notesTestCase(TestCase):
 
 	def test_not_logged_in(self):
 		response = self.client.get(reverse("swn:save_notes"), follow=True)
-		print(response.redirect_chain)
-		self.assertEqual(response.status_code, 302) # Should redirect
+		self.assertEqual(response.redirect_chain[len(response.redirect_chain)-1][1], 302) # Should redirect
 
 	def test_get_incorrect_parameter(self):
 		self.client._login(self.client.user)
@@ -320,10 +319,7 @@ class save_notesTestCase(TestCase):
 	def test_post_invalid_form(self):
 		self.client._login(self.client.user)
 		Notes.objects.create(id = 1)
-		form_data = {
-			"wrong": "This is all wrong",
-		}
-		response = self.client.post(reverse("swn:save_notes") + "?id=1", data=form_data, follow=True)
+		response = self.client.post(reverse("swn:save_notes") + "?id=1", data=None, follow=True)
 		self.assertEqual(response.status_code, 200)
 		self.assertJSONEqual(str(response.content, encoding="utf8"), {"error_message": "Invalid form"})
 
