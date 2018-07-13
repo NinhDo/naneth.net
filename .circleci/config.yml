@@ -51,13 +51,7 @@ jobs:
             DEBUG: True
           command: |
             . venv/bin/activate
-            mkdir /var/scripts/
-            touch /var/scripts/redeploy.sh
-            echo "#!/bin/sh \n" >> /var/scripts/redeploy.sh
-            echo "echo "redeploy.sh" >> /var/scripts/redeploy.sh
-            chmod a+x /var/scripts/redeploy.sh
             python manage.py test
-            rm /var/scripts/redeploy.sh
 
       - store_artifacts:
           path: test-reports
