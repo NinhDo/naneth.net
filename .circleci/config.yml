@@ -55,7 +55,7 @@ jobs:
             DB_HOST: 'localhost'
             DEBUG: True
           command: |
-          . venv/bin/activate
+            . venv/bin/activate
             /var/scripts/redeploy.sh
             make test
 
