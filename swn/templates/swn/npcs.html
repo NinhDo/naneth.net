@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load template_tags %}
+{% load static %}
+
+{% block title %}NPCs | Sector Asgard Sigma{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/sorttable.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>NPCs</h1>
+{% if npcs_list %}
+<table class="sortable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Gender</th>
+      <th>Age</th>
+			<th>Height</th>
+			<th>Quirk</th>
+			<th>Motivation</th>
+			<th>Problem</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for npc in npcs_list %}
+		<tr>
+			<td><a href="">{{npc.name}}</a></td>
+			<td>{{npc.gender}}</td>
+			<td>{{npc.age}}</td>
+			<td>{{npc.height}}</td>
+			<td>{{npc.quirk}}</td>
+			<td>{{npc.motivation}}</td>
+			<td>{{npc.problem}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}
