@@ -75,7 +75,7 @@ class planetTestCase(TestCase):
 
 class system_listTestCase(TestCase):
 	def test_no_system(self):
-		response = self.client.get(reverse("swn:system_list"))
+		response = self.client.get(reverse("swn:system_list"), follow=True)
 		self.assertEqual(response.status_code, 404)
 
 	def test_has_context(self):
@@ -296,6 +296,7 @@ class save_notesTestCase(TestCase):
 
 	def test_not_logged_in(self):
 		response = self.client.get(reverse("swn:save_notes"), follow=True)
+		print(response.redirect_chain)
 		self.assertEqual(response.status_code, 302) # Should redirect
 
 	def test_get_incorrect_parameter(self):
@@ -319,7 +320,10 @@ class save_notesTestCase(TestCase):
 	def test_post_invalid_form(self):
 		self.client._login(self.client.user)
 		Notes.objects.create(id = 1)
-		response = self.client.post(reverse("swn:save_notes") + "?id=1", follow=True)
+		form_data = {
+			"wrong": "This is all wrong",
+		}
+		response = self.client.post(reverse("swn:save_notes") + "?id=1", data=form_data, follow=True)
 		self.assertEqual(response.status_code, 200)
 		self.assertJSONEqual(str(response.content, encoding="utf8"), {"error_message": "Invalid form"})
 
