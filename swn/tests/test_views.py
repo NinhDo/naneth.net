@@ -101,7 +101,6 @@ class faction_overviewTestCase(TestCase):
 		self.assertEqual(response.status_code, 404)
 
 	def test_has_context(self):
-		create_planet()
 		faction = Faction.objects.create(name = "A name", alias = "fff", faction_type = "A faction type", force = 1, cunning = 1, wealth = 1, current_hp = 1, max_hp = 1, income = 1, faccreds = 1)
 		response = self.client.get(reverse("swn:faction_overview", args=["fff"]), follow=True)
 		self.assertEqual(response.status_code, 200)
