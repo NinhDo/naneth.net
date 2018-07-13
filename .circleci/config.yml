@@ -55,8 +55,8 @@ jobs:
             DB_HOST: 'localhost'
             DEBUG: True
           command: |
+          . venv/bin/activate
             /var/scripts/redeploy.sh
-            . venv/bin/activate
             make test
 
       - store_artifacts:
