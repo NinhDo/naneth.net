@@ -51,7 +51,7 @@ jobs:
             DEBUG: True
           command: |
             . venv/bin/activate
-            python manage.py test
+            make test
 
       - store_artifacts:
           path: test-reports
