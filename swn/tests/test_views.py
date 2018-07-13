@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.urls import reverse
 from django.contrib import auth
 
@@ -6,8 +6,6 @@ from django.contrib.auth.models import User, Group
 
 from swn.forms import UserForm
 from swn.views import *
-
-client = Client()
 
 def create_system():
 	system = System.objects.create(name = "A name", alias = "alias", nav_designation = "0000")

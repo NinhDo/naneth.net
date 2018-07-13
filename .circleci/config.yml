@@ -33,7 +33,6 @@ jobs:
             sudo chmod 777 /var/scripts/redeploy.sh
             sudo echo "#!/bin/sh" >> /var/scripts/redeploy.sh
             sudo echo "echo redeploying" >> /var/scripts/redeploy.sh
-            /var/scripts/redeploy.sh
 
       - save_cache:
           paths:
