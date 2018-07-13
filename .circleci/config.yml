@@ -28,9 +28,10 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            RUN mkdir -p /var/scripts
-            RUN touch /var/scripts/redeploy.sh
-            CMD echo "#!/bin/sh \necho 'redeploying'"
+            sudo mkdir -p /var/scripts
+            sudo touch /var/scripts/redeploy.sh
+            sudo echo "#!/bin/sh \necho 'redeploying'"
+            sudo chmod 777 /var/scripts/redeploy.sh
 
       - save_cache:
           paths:
