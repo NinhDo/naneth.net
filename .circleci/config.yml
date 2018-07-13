@@ -31,7 +31,8 @@ jobs:
             sudo mkdir -p /var/scripts
             sudo touch /var/scripts/redeploy.sh
             sudo chmod 777 /var/scripts/redeploy.sh
-            sudo echo "#!/bin/sh\necho redeploying" >> /var/scripts/redeploy.sh
+            sudo echo "#!/bin/sh" >> /var/scripts/redeploy.sh
+            sudo echo "echo redeploying" >> /var/scripts/redeploy.sh
             /var/scripts/redeploy.sh
 
       - save_cache:
