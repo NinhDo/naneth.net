@@ -68,5 +68,5 @@ def hello(request):
 	if event == 'ping':
 		return HttpResponse('pong')
 	elif event == 'push':
-		subprocess.call([script_path]) #pragma: no cover
+		subprocess.call([script_path])
 		return HttpResponse('success')
