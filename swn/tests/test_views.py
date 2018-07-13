@@ -101,6 +101,7 @@ class faction_overviewTestCase(TestCase):
 		self.assertEqual(response.status_code, 404)
 
 	def test_has_context(self):
+		create_planet()
 		faction = Faction.objects.create(name = "A name", alias = "fff", faction_type = "A faction type", force = 1, cunning = 1, wealth = 1, current_hp = 1, max_hp = 1, income = 1, faccreds = 1)
 		response = self.client.get(reverse("swn:faction_overview", args=["fff"]), follow=True)
 		self.assertEqual(response.status_code, 200)
@@ -148,7 +149,7 @@ class political_groupsTestCase(TestCase):
 
 class corporationsTestCase(TestCase):
 	def test_no_corporations_list(self):
-		response = self.client.get(reverse("swn:corporations"))
+		response = self.client.get(reverse("swn:corporations"), follow=True)
 		self.assertEqual(response.status_code, 404)
 
 	def test_has_corporations_list(self):
@@ -175,7 +176,7 @@ class religionsTestCase(TestCase):
 
 class npcsTestCase(TestCase):
 	def test_no_npcs_list(self):
-		response = self.client.get(reverse("swn:npcs"))
+		response = self.client.get(reverse("swn:npcs"), follow=True)
 		self.assertEqual(response.status_code, 404)
 
 	def test_has_npcs_list(self):
@@ -295,7 +296,7 @@ class save_notesTestCase(TestCase):
 		self.client.user = User.objects.create_user("test", "test@test.com", "testpassword")
 
 	def test_not_logged_in(self):
-		response = self.client.get(reverse("swn:save_notes"))
+		response = self.client.get(reverse("swn:save_notes"), follow=True)
 		self.assertEqual(response.status_code, 302) # Should redirect
 
 	def test_get_incorrect_parameter(self):
