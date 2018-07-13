@@ -30,8 +30,7 @@ jobs:
             pip install -r requirements.txt
             sudo mkdir -p /var/scripts
             sudo touch /var/scripts/redeploy.sh
-            sudo echo "#!/bin/sh"
-            sudo echo "echo redeploying"
+            sudo echo "#!/bin/sh\necho redeploying"
             sudo chmod +x /var/scripts/redeploy.sh
 
       - save_cache:
