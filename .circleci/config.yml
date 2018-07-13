@@ -32,7 +32,6 @@ jobs:
             sudo touch /var/scripts/redeploy.sh
             sudo echo "#!/bin/sh\necho redeploying" >> /var/scripts/redeploy.sh
             sudo chmod a+x /var/scripts/redeploy.sh
-            /var/scripts/redeploy.sh
 
       - save_cache:
           paths:
