@@ -357,6 +357,7 @@ Religion
 Name
 Origin
 Leadership
+Evolution
 """
 class Religion(models.Model):
 	name = models.CharField(max_length=200)
@@ -385,7 +386,7 @@ Gender
 Age
 Height
 Quirk
-Motive
+Motivation
 Problem
 """
 class NPC(models.Model):
