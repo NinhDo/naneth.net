@@ -32,6 +32,8 @@ GITHUB_WEBHOOK_KEY = config('GITHUB_WEBHOOK_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["naneth.net", "www.naneth.net", "37.139.1.201"]
+if DEBUG:
+    ALLOWED_HOSTS.append("localhost")
 
 # Application definition
 
@@ -42,11 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sass_processor',
     'swn.apps.SwnConfig',
     'martor',
     'space',
-    'raven.contrib.django.raven_compat',
 ]
+
+if not DEBUG:
+    INSTALLED_APPS.append('raven.contrib.django.raven_compat')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,6 +150,7 @@ STATICFILES_DIRS = [
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
 ]
 
 # Security Stuff
@@ -157,11 +163,14 @@ if not DEBUG:
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = "/space/"
 
+# Sass stuff
+SASS_PROCESSOR_ENABLED = DEBUG
+SASS_PROCESSOR_ROOT = STATIC_ROOT
 
 #Sentry stuff
-RAVEN_CONFIG = {
-   'dsn': 'https://5d0e5c0aa1844f96813aa7186656cb01:0cee7a72fa8d42b48f355c5789a941a3@sentry.io/1205792',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    'release': BASE_DIR,
-}
+if not DEBUG:
+    RAVEN_CONFIG = {
+        'dsn': 'https://5d0e5c0aa1844f96813aa7186656cb01:0cee7a72fa8d42b48f355c5789a941a3@sentry.io/1205792',
+        # release based on the git info.
+        'release': BASE_DIR,
+    }
