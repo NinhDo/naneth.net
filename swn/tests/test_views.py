@@ -321,6 +321,7 @@ class save_notesTestCase(TestCase):
 	def test_post_invalid_form(self):
 		self.client._login(self.client.user)
 		Notes.objects.create(id = 1)
+		print(reverse("swn:save_notes"))
 		response = self.client.post(reverse("swn:save_notes") + "?id=1", data=None, follow=True)
 		self.assertEqual(response.status_code, 200)
 		self.assertJSONEqual(str(response.content, encoding="utf8"), {"error_message": "Invalid form"})
