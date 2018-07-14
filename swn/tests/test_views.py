@@ -129,6 +129,7 @@ class alien_racesTestCase(TestCase):
 		Alien.objects.create(name = "A name", body_type = bt, lenses1 = l, lenses2 = l, structure1 = s, structure2 = s)
 		response = self.client.get(reverse("swn:alien_races"), follow=True)
 		print(response)
+		print(response.redirect_chain)
 		self.assertEqual(response.status_code, 200)
 		self.assertQuerysetEqual(response.context["alien_races_list"], ["<Alien: A name>"])
 
