@@ -208,7 +208,7 @@ class signupTestCase(TestCase):
 			"username": "test",
 			"first_name": "test",
 			"last_name": "test",
-			"password1": "test1234",
+			"password1": "12312ss3",
 			"password2": "test1231"
 		}
 		response = self.client.post(path=reverse("signup"), data=form_data, follow=True)
@@ -224,9 +224,8 @@ class signupTestCase(TestCase):
 			"password2": "test1234"
 		}
 
-		response = self.client.post(path=reverse("signup"), data=form_data, follow=True)
-		print(response.redirect_chain)
-		self.assertEqual(response.redirect_chain[len(response.redirect_chain)-2][1], 302) # Redirected to /space (-2 because the last one is a 301, and we want the second to last one)
+		response = self.client.post(path=reverse("signup"), data=form_data)
+		self.assertEqual(response.status_code, 302) # Redirected to /space
 		user = auth.get_user(self.client)
 		self.assertTrue(user.is_authenticated)
 
