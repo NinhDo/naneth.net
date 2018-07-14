@@ -224,8 +224,10 @@ class signupTestCase(TestCase):
 			"password2": "test1234"
 		}
 
-		response = self.client.post(path=reverse("signup"), data=form_data)
-		self.assertEqual(response.status_code, 302) # Redirected to /space
+		response = self.client.post(path=reverse("signup"), data=form_data, follow=True)
+		print(response.redirect_chain)
+		self.assertEqual(response.redirect_chain[len(response.redirect_chain) - 1][1], 302)
+#		self.assertEqual(response.status_code, 302) # Redirected to /space
 		user = auth.get_user(self.client)
 		self.assertTrue(user.is_authenticated)
 
@@ -272,7 +274,7 @@ class save_planet_notesTestCase(TestCase):
 		self.client._login(self.client.user)
 		self.make_gm()
 		planet = create_planet()
-		response = self.client.post(reverse("swn:save_planet_notes") + "?planet={}".format(planet.id), data = None, follow=True)
+		response = self.client.post(reverse("swn:save_planet_notes") + "?planet={}".format(planet.id), data=None, follow=True)
 		self.assertEqual(response.status_code, 200)
 		self.assertJSONEqual(str(response.content, encoding="utf8"), {"error_message": "Invalid form"})
 
