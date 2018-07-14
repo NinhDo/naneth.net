@@ -64,7 +64,12 @@ ROOT_URLCONF = 'space.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [".", "./templates",],
+        'DIRS': [
+            ".",
+            "./templates",
+            "./swn",
+            "./swn/templates",
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,10 +148,11 @@ STATICFILES_FINDERS = [
 ]
 
 # Security Stuff
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = "/space/"
