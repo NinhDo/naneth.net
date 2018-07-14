@@ -9,7 +9,7 @@
 {% block js %}
 {% if user.is_authenticated %}
 {% if user|has_group:'GM' or user|has_group:'Player' %}
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <script src="{% static 'swn/js/jquery-3.3.1.min.js' %}"></script>
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
 <script src="{% static 'swn/js/planet_markdown.js' %}"></script>

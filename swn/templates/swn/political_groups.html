@@ -1,6 +1,11 @@
 {% extends 'base.html'%}
+{% load static %}
 
 {% block title %}Political Groups | Sector Asgard Sigma{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/sorttable.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 <h1>Political Groups</h1>

@@ -1,0 +1,18 @@
+@import "colors";
+@import "constants";
+
+body {
+	display: grid;
+	grid-template-columns: minmax(8rem, 1fr) 8fr minmax(8rem, 1fr);
+	grid-template-rows: auto 1fr 5rem;
+	min-height: 100vh;
+	grid-template-areas:
+		"header header header"
+		"leftside main rightside"
+		"footer footer footer";
+	justify-items: stretch;
+	align-content: stretch;
+	margin: 0;
+	font-family: $font-stack;
+	background-color: $light-gray;
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load template_tags %}
+{% load static %}
+
+{% block title %}Religions | Sector Asgard Sigma{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/sorttable.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Religions</h1>
+{% if religions_list %}
+<table class="sortable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Origin</th>
+      <th>Leadership</th>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<th>Evolution</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for religion in religions_list %}
+		<tr>
+			<td><a href="">{{religion.name}}</a></td>
+			<td>{{religion.origin}}</td>
+			<td>{{religion.leadership}}</td>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<td>{{religion.evolution}}</td>
+      {% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}

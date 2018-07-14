@@ -1,8 +1,9 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load sass_tags %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'swn/css/sector.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% sass_src 'swn/css/sector.scss' %}" />
 {% endblock %}
 
 {% block js %}
