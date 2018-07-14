@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User, Group
+from django.urls import reverse
 
 from swn.forms import UserForm, PlanetNotesForm, NotesForm
 from .models import *
@@ -152,7 +153,7 @@ def signup(request):
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
-			return redirect('/space')
+			return redirect(reverse("swn:index"), permanent=False)
 	else:
 		form = UserForm()
 	return render(request, 'registration/signup.html', {'form': form})
