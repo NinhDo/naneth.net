@@ -146,9 +146,9 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 else:
     STATIC_ROOT = '/var/www/naneth.net/static/'
-	STATICFILES_DIRS = [
-	    os.path.join(BASE_DIR, "static/"),
-	]
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static/"),
+    ]
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
