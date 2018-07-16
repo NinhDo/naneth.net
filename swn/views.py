@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User, Group
+from django.urls import reverse
 
 from swn.forms import UserForm, PlanetNotesForm, NotesForm
 from .models import *
@@ -17,7 +18,7 @@ def user_is_gm(user):
 def index(request):
 	planet_list = get_list_or_404(Planet.objects.order_by("system", "name"))
 	hex_list = get_list_or_404(System.objects.values_list("nav_designation", flat=True))
-	points, rad, centers, data_list = generate_points()
+	rad, data_list = generate_points()
 	for i, data in enumerate(data_list):
 		for planet in planet_list:
 			if data[2] == planet.system.nav_designation:
@@ -27,11 +28,8 @@ def index(request):
 	context = {
 		'planet_list': planet_list,
 		'hex_list': hex_list,
-		'points': points,
 		'h': h,
 		'w': w,
-		'centers': centers,
-		'len': len(points),
 		'data_list': data_list,
 	}
 	return render(request, "swn/sector.html", context)
@@ -155,7 +153,7 @@ def signup(request):
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
-			return redirect('/space')
+			return redirect(reverse("swn:index"), permanent=False)
 	else:
 		form = UserForm()
 	return render(request, 'registration/signup.html', {'form': form})
@@ -164,10 +162,12 @@ def signup(request):
 @login_required
 @user_passes_test(user_is_gm)
 def save_planet_notes(request):
-	planet = Planet.objects.get(id=request.GET["planet"]);
+	if "planet" not in request.GET.keys():
+		return JsonResponse({"error_message": "Invalid form"})
+	planet = get_object_or_404(Planet, id = request.GET["planet"]);
 	if request.method == "POST":
 		form = PlanetNotesForm(request.POST or None, instance=planet)
-		if form.is_valid:
+		if form.is_valid():
 			form.save()
 		else:
 			return JsonResponse({"error_message": "Invalid form"})
@@ -176,10 +176,12 @@ def save_planet_notes(request):
 
 @login_required
 def save_notes(request):
-	instance = Notes.objects.get(id=request.GET["id"])
+	if "id" not in request.GET.keys():
+		return JsonResponse({"error_message": "Invalid form"})
+	instance = get_object_or_404(Notes, id=request.GET["id"])
 	if request.method == "POST":
 		form = NotesForm(request.POST or None, instance=instance)
-		if form.is_valid:
+		if form.is_valid():
 			notes = form.save(commit=False)
 			notes.last_editor = request.user
 			notes.save()
@@ -189,13 +191,17 @@ def save_notes(request):
 
 
 def generate_points():
+	# The 6 angles from the center of a vertical hexagon (flat top) to its corners
 	angles = [0, math.pi / 3, math.pi * 2 / 3, math.pi, math.pi * 4 / 3, math.pi * 5 / 3]
-	centers = []
-	ret = []
+	# The list of data to return
 	data_list = []
+	# The corner(s) of the current hexagon
 	p = ""
+	# The radius of the hexagon
 	rad = 40
+	# The x position of the current hexagon center
 	px = rad
+	# The y position of the current hexagon center
 	py = rad
 	width = rad * 2
 	horiz = width * 3/4
@@ -209,10 +215,8 @@ def generate_points():
 		for y in range(10):
 			for n in angles:
 				p += "{:.5f},{:.5f} ".format(px + rad * math.cos(n), py + rad * math.sin(n))
-			ret.append(p)
-			centers.append((px, py))
 			data_list.append((p, (px, py), "{:02d}{:02d}".format(x, y), None))
 			p = ""
 			py += vert
 		px += horiz
-	return (ret, rad, centers, data_list)
+	return rad, data_list

@@ -18,3 +18,8 @@ static/*
 !static/images
 .remote-sync.json
 *.log
+whitelist.json
+.coverage
+.coveragerc
+htmlcov/
+nsource

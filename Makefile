@@ -10,4 +10,16 @@ run:
 dbshell:
 	python manage.py dbshell
 
-.PHONY: swn migrate run dbshell source
+static:
+	python manage.py collectstatic --noinput -c
+
+sass:
+	python manage.py compilescss
+
+test:
+	coverage run manage.py test swn.tests api space
+
+report:
+	coverage report -m
+
+.PHONY: swn migrate run dbshell static sass test report
