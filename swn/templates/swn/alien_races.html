@@ -1,7 +1,12 @@
 {% extends 'base.html'%}
 {% load template_tags %}
+{% load static %}
 
 {% block title %}Alien Races | Sector Asgard Sigma{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/sorttable.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 <h1>Alien Races</h1>

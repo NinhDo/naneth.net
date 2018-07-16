@@ -1,0 +1,44 @@
+@import "colors";
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	align-self: start;
+	color: $dark-gray;
+
+	a {
+		font-weight: bold;
+		color: $dark-gray;
+		transition: all 0.1s ease-in;
+		font-variant: small-caps;
+	}
+
+ 	a:hover {
+		color: $pink-7;
+	}
+}
+
+th {
+	background-color: $purple;
+	border: 1px solid black;
+	padding: 0.3rem 0.5rem;
+	font-variant: small-caps;
+}
+
+td {
+	padding: 0.1rem 0.5rem;
+	vertical-align: top;
+	border: 1px solid black;
+}
+
+td:first-child {
+	font-variant: small-caps;
+}
+
+th:first-child, td:first-child {
+	text-align: end;
+}
+
+tr:not(.nostyle):nth-child(odd) {
+	background-color: $gray-2;
+}
