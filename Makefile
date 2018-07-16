@@ -17,9 +17,9 @@ sass:
 	python3 manage.py compilescss
 
 test:
-	coverage run manage.py test swn.tests api space
+	coverage3 run manage.py test swn.tests api space
 
 report:
-	coverage report -m
+	coverage3 report -m
 
 .PHONY: swn migrate run dbshell static sass test report
