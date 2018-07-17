@@ -1,6 +1,8 @@
+@import "colors";
+
 .sectorwrapper {
 	display: grid;
-	grid-template-columns: 1fr 1fr;|
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr auto;
 	grid-template-areas:
 		"top top"
@@ -22,20 +24,20 @@
 }
 
 .populated > polygon{
-	fill: #5D69BE;
+	fill: $purple;
 	transition: all 0.1s ease-in;
 }
 
 .hex:not(.populated) polygon {
-	fill: #9A9DC9;
+	fill: $purple-1;
 }
 
 .hex:hover > polygon {
-	fill: #E69FCD;
+	fill: $pink-1;
 }
 
 text {
-	color: #1F1721;
+	color: $dark-gray;
 	font-weight: bold;
 }
 
@@ -69,5 +71,5 @@ text:last-of-type {
 
 
 .selected {
-	background: #E69FCD!important;
+	background: $pink-1!important;
 }

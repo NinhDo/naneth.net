@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load template_tags %}
+{% load static %}
+
+{% block title %}Corporations | Sector Asgard Sigma{% endblock %}
+
+{% block js %}
+<script src="{% static 'swn/js/sorttable.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Corporations</h1>
+{% if corporations_list %}
+<table class="sortable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Business</th>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<th>Reputation</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for corporation in corporations_list %}
+		<tr>
+			<td><a href="">{{corporation.name}}</a></td>
+			<td>{{corporation.business}}</td>
+			{% if user.is_authenticated and user|has_group:"GM" %}
+			<td>{{corporation.reputation}}
+      {% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<span>There is no spoon.</span>
+{% endif %}
+{% endblock %}

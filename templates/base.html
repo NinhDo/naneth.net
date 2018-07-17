@@ -1,11 +1,16 @@
 {% load static %}
 {% load template_tags %}
+{% load sass_tags %}
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="{% static 'swn/css/styles.css' %}" />
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'swn/css/styles.css' %}" />
+	-->
+	<link rel="stylesheet" type="text/css" href="{% sass_src 'swn/css/sass.scss' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'swn/css/elements.css' %}" />
 	{% block css %}{% endblock %}
+	<script src="{% static 'swn/js/menu.js' %}"></script>
 	{% block js %}{% endblock %}
 	<link rel="shortcut icon" sizes="32x32" type="image/png" href="{% static 'images/favicon32x32.png'%}" />
 	<link rel="shortcut icon" sizes="16x16" type="image/png" href="{% static 'images/favicon.png'%}" />
@@ -34,6 +39,9 @@
 				{% endif %}
 			</div>
 		</div>
+		<a href="javascript:void();" class="menuIcon" onclick="showMenu()">
+			<i class="fas fa-bars"></i>
+		</a>
 		{% block login %}
 		{% include "login_info.html" %}
 		{% endblock %}
