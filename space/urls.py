@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.contrib.auth import views as auth_views
 from swn import views as swn_views
-from space.views import index, projects
+from space.views import index
 from api import views as api_views
 
 urlpatterns = [
 	re_path(r'^$', index, name="index"),
-	re_path(r'^projects/$', projects, name="projects"),
+	re_path(r'^projects/', include("projects.urls")),
 	re_path(r'^space/', include("swn.urls")),
     re_path(r'^api/', include("api.urls")),
 	re_path(r'^admin/', admin.site.urls),

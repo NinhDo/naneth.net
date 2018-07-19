@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'swn.apps.SwnConfig',
     'martor',
     'space',
+	'webpack_loader',
 ]
 
 if not DEBUG:
@@ -74,6 +75,8 @@ TEMPLATES = [
             "./templates",
             "./swn",
             "./swn/templates",
+			"./projects",
+			"./projects/templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -177,3 +180,12 @@ if not DEBUG:
         # release based on the git info.
         'release': BASE_DIR,
     }
+
+
+# Webpack stuff
+WEBPACK_LOADER = {
+    'DEFAULT': {
+            'BUNDLE_DIR_NAME': 'bundles/',
+            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
+        }
+}
