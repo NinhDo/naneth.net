@@ -22,7 +22,7 @@ from api import views as api_views
 
 urlpatterns = [
 	re_path(r'^$', index, name="index"),
-	re_path(r'^projects/', include("projects.urls")),
+	re_path(r'^dnd/', include("dnd.urls")),
 	re_path(r'^space/', include("swn.urls")),
     re_path(r'^api/', include("api.urls")),
 	re_path(r'^admin/', admin.site.urls),

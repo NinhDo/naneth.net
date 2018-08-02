@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'swn.apps.SwnConfig',
     'martor',
     'space',
+	'dnd',
 	'webpack_loader',
 ]
 
