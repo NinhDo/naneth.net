@@ -5,8 +5,6 @@
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700" rel="stylesheet" />
 	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-	<!--<link rel="stylesheet" type="text/css" href="{% static 'swn/css/styles.css' %}" />
-	-->
 	<link rel="stylesheet" type="text/css" href="{% sass_src 'swn/css/sass.scss' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'swn/css/elements.css' %}" />
 	{% block css %}{% endblock %}
@@ -31,6 +29,7 @@
 			<div class="normalLinks">
 				<a href="/">Home</a>
 				<a href="/projects">Projects</a>
+				<a href="{% url 'dnd:index' %}">D&D</a>
 			</div>
 			<div class="spaceLinks">
 				<a href="{% url 'swn:index' %}">Sector Asgard Sigma</a>
