@@ -687,6 +687,7 @@ class Creature(models.Model):
 		ordering = ["name"]
 
 class Monster(Creature):
+	book                     = models.CharField(max_length=32)
 	hp_dice                  = models.CharField(max_length=16)
 	challenge_rating         = models.CharField(max_length=3, choices=CHALLENGE_RATING_CHOICES, default="0")
 	@property
