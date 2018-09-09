@@ -518,7 +518,7 @@ class Skills(models.Model):
 class Spell(models.Model):
 	name                     = models.CharField(max_length=32)
 	level                    = PositiveSmallIntegerRangeField(choices=SPELL_LEVEL_CHOICES, min_value=CANTRIP, max_value=SPELL_LEVEL_9, default=CANTRIP)
-	book                     = models.CharField(max_length=32)
+	book                     = models.CharField(max_length=32, blank=True, default="")
 	school                   = models.CharField(max_length=2, choices=SCHOOLS_CHOICES, default=ABJURATION)
 	casting_time             = models.CharField(max_length=16, default="1 Action")
 	range                    = models.CharField(max_length=32, default="30 feet")
@@ -687,7 +687,7 @@ class Creature(models.Model):
 		ordering = ["name"]
 
 class Monster(Creature):
-	book                     = models.CharField(max_length=32)
+	book                     = models.CharField(max_length=32, blank=True, default="")
 	hp_dice                  = models.CharField(max_length=16)
 	challenge_rating         = models.CharField(max_length=3, choices=CHALLENGE_RATING_CHOICES, default="0")
 	@property
