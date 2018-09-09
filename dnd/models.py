@@ -173,14 +173,16 @@ STAT_CHOICES = (
 	(CHARISMA, "Charisma"),
 )
 
-MELEE_WEAPON  = "MW"
-RANGED_WEAPON = "RW"
-MELEE_SPELL   = "MS"
-RANGED_SPELL  = "RS"
+MELEE_WEAPON           = "MW"
+RANGED_WEAPON          = "RW"
+MELEE_OR_RANGED_WEAPON = "MR"
+MELEE_SPELL            = "MS"
+RANGED_SPELL           = "RS"
 
 TYPE_CHOICES = (
 	(MELEE_WEAPON, "Melee Weapon Attack"),
 	(RANGED_WEAPON, "Ranged Weapon Attack"),
+	(MELEE_OR_RANGED_WEAPON, "Melee or Ranged Weapon Attack"),
 	(MELEE_SPELL, "Melee Weapon Attack"),
 	(RANGED_SPELL, "Ranged Weapon Attack"),
 )
