@@ -388,7 +388,7 @@ class Resource(models.Model):
 
 	def use(self):
 		if self.left > 0:
-			self.left =- 1
+			self.left -= 1
 
 	def __str__(self):
 		return self.name
