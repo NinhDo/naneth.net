@@ -516,32 +516,32 @@ class Skills(models.Model):
 
 
 class Spell(models.Model):
-	name                     = models.CharField(max_length=32)
+	name                     = models.CharField(max_length=64)
 	level                    = PositiveSmallIntegerRangeField(choices=SPELL_LEVEL_CHOICES, min_value=CANTRIP, max_value=SPELL_LEVEL_9, default=CANTRIP)
 	book                     = models.CharField(max_length=32, blank=True, default="")
 	school                   = models.CharField(max_length=2, choices=SCHOOLS_CHOICES, default=ABJURATION)
-	casting_time             = models.CharField(max_length=16, default="1 Action")
+	casting_time             = models.CharField(max_length=128, default="1 Action")
 	range                    = models.CharField(max_length=32, default="30 feet")
 	verbal                   = models.BooleanField(default=False)
 	somatic                  = models.BooleanField(default=False)
 	material                 = models.BooleanField(default=False)
-	material_material        = models.CharField(max_length=32, blank=True, default="")
+	material_material        = models.CharField(max_length=516, blank=True, default="")
 	duration                 = models.CharField(max_length=32, default="Instantaneous")
 	description              = models.TextField(blank=True, default="")
 	higher_level_description = models.TextField(blank=True, default="")
 
-	attack_type              = models.CharField(max_length=1, choices=ATTACK_TYPE_CHOICES, default="")
-	damage                   = models.CharField(max_length=64, default="1d6")
-	damage_type              = models.CharField(max_length=2, choices=DAMAGE_TYPE_CHOICES, default="")
+	attack_type              = models.CharField(max_length=1, blank=True, choices=ATTACK_TYPE_CHOICES, default="")
+	damage                   = models.CharField(max_length=64, blank=True, default="")
+	damage_type              = models.CharField(max_length=2, blank=True, choices=DAMAGE_TYPE_CHOICES, default="")
 	damage_type_other        = models.CharField(max_length=128, blank=True, default="")
 	higher_level_dice        = models.PositiveSmallIntegerField(null=True, blank=True, default=None)
 	damage2                  = models.CharField(max_length=64, blank=True, default="")
-	damage2_type             = models.CharField(max_length=2, choices=DAMAGE_TYPE_CHOICES, default="")
+	damage2_type             = models.CharField(max_length=2, blank=True, choices=DAMAGE_TYPE_CHOICES, default="")
 	damage2_type_other       = models.CharField(max_length=128, blank=True, default="")
 	higher_level_dice2       = models.PositiveSmallIntegerField(null=True, blank=True, default=None)
 
-	save_ability             = models.CharField(max_length=2, choices=STAT_CHOICES, default="")
-	save_success             = models.CharField(max_length=128, blank=True)
+	save_ability             = models.CharField(max_length=2, blank=True, choices=STAT_CHOICES, default="")
+	save_success             = models.CharField(max_length=128, blank=True, default="")
 
 	def __str__(self):
 		return self.name
@@ -752,7 +752,7 @@ class PlayerCharacter(Creature):
 	money                          = models.OneToOneField(Money, on_delete=models.CASCADE, blank=True, related_name="money")
 
 	spellcaster                    = models.BooleanField(default=False)
-	spellcasting_ability           = models.CharField(max_length=2, choices=STAT_CHOICES, default="")
+	spellcasting_ability           = models.CharField(max_length=2, blank=True, choices=STAT_CHOICES, default="")
 	spell_save_dc                  = models.PositiveSmallIntegerField(default=8)
 	spell_attack_bonus             = models.PositiveSmallIntegerField(default=0)
 
