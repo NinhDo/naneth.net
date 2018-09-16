@@ -1,0 +1,75 @@
+@import "constants";
+
+.spellList {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+}
+
+.spell {
+	display: grid;
+	grid-template-areas:
+		"info"
+		"description"
+		"book";
+	grid-template-rows: 4fr 5fr 1fr;
+	text-align: left;
+	width: 20rem;
+	height: 30rem;
+	border: 1px solid black;
+	border-radius: 0.2rem;
+	margin: 1rem;
+	box-shadow: 0.2rem 0.2rem 0.5rem black;
+}
+
+.spellInfo {
+	grid-area: "info";
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 1rem 0 1rem;
+}
+
+.spellInfo span {
+	text-indent: -1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.spellName {
+	font-family: "helvetica" + $font-stack;
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.spellSchoolLevel {
+}
+
+.spellCastingTime {
+}
+
+.spellRange {
+}
+
+.spellComponents {
+}
+
+.spellDuration {
+}
+
+.spellDescription {
+	grid-area: "description";
+	overflow-y: scroll;
+	background-color:grey;
+	padding: 0 0.5rem;
+	margin: .5rem;
+	text-indent: 1rem;
+}
+
+.spellBook {
+	grid-area: "book";
+	font-weight: lighter;
+	font-size: .8rem;
+	justify-self: end;
+	align-self: end;
+	padding: 0.25rem 0.5rem;
+}
