@@ -521,6 +521,7 @@ class Spell(models.Model):
 	book                     = models.CharField(max_length=32, blank=True, default="")
 	school                   = models.CharField(max_length=2, choices=SCHOOLS_CHOICES, default=ABJURATION)
 	casting_time             = models.CharField(max_length=128, default="1 Action")
+	ritual                   = models.BooleanField(default=False)
 	range                    = models.CharField(max_length=32, default="30 feet")
 	verbal                   = models.BooleanField(default=False)
 	somatic                  = models.BooleanField(default=False)
