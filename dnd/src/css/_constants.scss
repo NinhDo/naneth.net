@@ -1,1 +1,15 @@
 $font-stack:  "Inter UI", "Ubuntu", "helvetica", "arial", "sans-serif";
+
+$abjuration: #F6F8FF;
+$conjuration: #29992D;
+$divination: #F4BB47;
+$enchantment: #F371AB;
+$evocation: #DD4B1A;
+$illusion: #202C59;
+$necromancy: #07091C;
+$transmutation: #9E31D8;
+
+@mixin card($color) {
+	background-color: rgba($color, 0.3);
+	border-color: rgba($color, 0.8);
+}

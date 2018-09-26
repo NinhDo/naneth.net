@@ -1,5 +1,11 @@
 @import "constants";
 
+.spellFilter {
+	select {
+		margin: 0 2rem 0 0.2rem;
+	}
+}
+
 .spellList {
 	display: flex;
 	flex-direction: row;
@@ -12,14 +18,16 @@
 		"info"
 		"description"
 		"book";
-	grid-template-rows: 4fr 5fr 1fr;
+	grid-template-rows: 13fr 15fr 1fr;
 	text-align: left;
 	width: 20rem;
 	height: 30rem;
-	border: 1px solid black;
-	border-radius: 0.2rem;
-	margin: 1rem;
+	border: 1rem solid black;
+	border-radius: 1.5rem;
+	margin: 0.5rem;
 	box-shadow: 0.2rem 0.2rem 0.5rem black;
+	font-size: 0.8rem;
+	background-color: #EDEFF7;
 }
 
 .spellInfo {
@@ -29,15 +37,14 @@
 	padding: 1rem 1rem 0 1rem;
 }
 
-.spellInfo span {
+.spellInfo > span {
 	text-indent: -1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
 
 .spellName {
-	font-family: "helvetica" + $font-stack;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	font-weight: bold;
 }
 
@@ -57,12 +64,25 @@
 }
 
 .spellDescription {
-	grid-area: "description";
-	overflow-y: scroll;
-	background-color:grey;
+	overflow-y: auto;
+	background-color: rgba(#F6F8FF, 0.5);
+	border-radius: 0.5rem;
 	padding: 0 0.5rem;
 	margin: .5rem;
 	text-indent: 1rem;
+}
+
+.spellDescription::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+.spellDescription::-webkit-scrollbar-track {
+	border-radius: 1rem;
+}
+
+.spellDescription::-webkit-scrollbar-thumb {
+	background-color: rgba(#58585B, 0.7);
+	border-radius: 1rem;
 }
 
 .spellBook {
@@ -72,4 +92,36 @@
 	justify-self: end;
 	align-self: end;
 	padding: 0.25rem 0.5rem;
+}
+
+.abjuration {
+	@include card($abjuration);
+}
+
+.conjuration {
+	@include card($conjuration);
+}
+
+.divination {
+	@include card($divination);
+}
+
+.enchantment {
+	@include card($enchantment);
+}
+
+.evocation {
+	@include card($evocation);
+}
+
+.ilusion {
+	@include card($illusion);
+}
+
+.necromancy {
+	@include card($necromancy);
+}
+
+.transmutation {
+	@include card($transmutation);
 }
