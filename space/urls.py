@@ -26,7 +26,7 @@ urlpatterns = [
 	re_path(r'^space/', include("swn.urls")),
     re_path(r'^api/', include("api.urls")),
 	re_path(r'^admin/', admin.site.urls),
-	re_path(r'^login/$', auth_views.login, name="login"),
-	re_path(r'^logout/$', auth_views.logout, name="logout"),
+	re_path(r'^login/$', auth_views.LoginView, name="login"),
+	re_path(r'^logout/$', auth_views.LogoutView, name="logout"),
 	re_path(r'^signup/$', swn_views.signup, name="signup"),
 ]

@@ -5,10 +5,12 @@ from ipaddress import ip_address, ip_network
 from decouple import config
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.encoding import force_bytes
+
+from dnd.models import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 script_path = "/var/scripts/redeploy.sh"
@@ -70,3 +72,8 @@ def hello(request):
 	elif event == 'push':
 		subprocess.call([script_path])
 		return HttpResponse('success')
+
+def spells(request):
+	spells = Spell.objects.order_by("name").values()
+	spell_list = list(spells)
+	return JsonResponse(spell_list, safe=False)

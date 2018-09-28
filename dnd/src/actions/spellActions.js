@@ -64,7 +64,7 @@ export const VisibilityFilters = {
 export function fetchSpells() {
 	return dispatch => {
 		dispatch(fetchSpellsBegin());
-		return fetch("/dnd/spells/")
+		return fetch("/api/spells/")
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(json => {
