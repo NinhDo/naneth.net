@@ -196,8 +196,8 @@ class signupTestCase(TestCase):
 			"username": "test",
 			"first_name": "test",
 			"last_name": "test",
-			"password1": "test1234",
-			"password2": "test1234"
+			"password1": "t1e2s3t4",
+			"password2": "t1e2s3t4"
 		}
 		response = self.client.get(path=reverse("signup"), data=form_data)
 		self.assertEqual(response.status_code, 200)
@@ -220,8 +220,8 @@ class signupTestCase(TestCase):
 			"username": "test",
 			"first_name": "test",
 			"last_name": "test",
-			"password1": "test1234",
-			"password2": "test1234"
+			"password1": "t1e2s3t4",
+			"password2": "t1e2s3t4"
 		}
 
 		response = self.client.post(path=reverse("signup"), data=form_data)
