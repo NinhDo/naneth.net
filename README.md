@@ -1,3 +1,5 @@
+# Everything is old and outdated now
+
 My Website. Mostly for testing out various stuff. 
 https://www.naneth.net
 
